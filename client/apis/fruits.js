@@ -8,3 +8,4 @@ export function getFruits () {
       return res.body.fruits
     })
 }
+// export more functions from server side

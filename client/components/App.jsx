@@ -1,25 +1,41 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import { cacheUser } from '../auth0'
 
-import { fetchFruits } from '../actions'
+import { useSelector } from 'react-redux'
+import { Routes, Route } from 'react-router-dom'
+
+import Header from './Header'
+import Body from './Body'
+import Footer from './Footer'
+import ErrMessage from './ErrMessage'
 
 function App () {
-  const fruits = useSelector(state => state.fruits)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [])
+  const user = useSelector(state => state.currentUser)
+  cacheUser(useAuth0)
 
   return (
     <>
-      <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+      <div>
+        <Header/>
+        <ErrMessage />
       </div>
+
+      <div>
+        <Body/>
+      </div>
+
+      <div>
+        <Footer/>
+      </div>
+
+      {/* <Routes>
+          <Route exact path='/listings ' element={<Header/>} />
+          <Route path='/listings ' element={<Footer/>} />
+          <Route path='/listings ' element={<Body/>} />
+
+        </Routes> */}
+
     </>
   )
 }
