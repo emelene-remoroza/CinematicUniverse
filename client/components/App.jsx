@@ -1,9 +1,8 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0'
-
 import { useSelector } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
+// import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
 import Body from './Body'
@@ -17,25 +16,38 @@ function App () {
   return (
     <>
       <div>
-        <Header/>
-        <ErrMessage />
-      </div>
+        <div className='app'>
+          <h1>Trial</h1>
+          {user?.name && (
+            <div>
+              <div style={{ float: 'right' }}>
+                <p>Welcome, {user.name}</p>
+                <img src={user.picture} alt={`${user.name} thumbnail`} width="100px" />
+              </div>
+            </div>
+          )}
+        </div>
 
-      <div>
-        <Body/>
-      </div>
+        <div>
+          <Header/>
+          <ErrMessage />
+        </div>
 
-      <div>
-        <Footer/>
-      </div>
+        <div>
+          <Body/>
+        </div>
 
-      {/* <Routes>
+        <div>
+          <Footer/>
+        </div>
+
+        {/* <Routes>
           <Route exact path='/listings ' element={<Header/>} />
           <Route path='/listings ' element={<Footer/>} />
           <Route path='/listings ' element={<Body/>} />
 
         </Routes> */}
-
+      </div>
     </>
   )
 }
