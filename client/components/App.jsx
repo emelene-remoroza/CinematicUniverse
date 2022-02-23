@@ -25,6 +25,7 @@ function App () {
                 <img src={user.picture} alt={`${user.name} thumbnail`} width="100px" />
               </div>
             </div>
+
           )}
         </div>
 
