@@ -23,7 +23,6 @@ function Header () {
 
   return (
     <>
-
       <IfAuthenticated>
         <a href='/' onClick={handleLogOff}>Logout</a>
       </IfAuthenticated>
@@ -32,7 +31,6 @@ function Header () {
         <a href='/' onClick={handleSignIn}>Sign in</a>
       </IfNotAuthenticated>
       <h1>Movies</h1>
-
     </>
   )
 }
