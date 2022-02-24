@@ -54,8 +54,7 @@
     "@auth0/auth0-react": "^1.8.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "dotenv": "^10.0.0"
+    "@fortawesome/react-fontawesome": "^0.1.16"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
