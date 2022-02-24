@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0'
 // import { useSelector } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 
-import Header from './Header'
+import { fetchMarvel } from '../actions'
 
-import MarvelList from './MarvelList'
-import Footer from './Footer'
+import Header from './Header'
 import ErrMessage from './ErrMessage'
 import Movie from './Movie'
+import MarvelList from './MarvelList'
+import Footer from './Footer'
 
 function App () {
   // const user = useSelector(state => state.currentUser)
   cacheUser(useAuth0)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchMarvel())
+  }, [])
 
   return (
     <>
@@ -39,7 +46,7 @@ function App () {
         <Routes>
           <Route path='/' element={<>This is the home page</>} />
           <Route path='/marvel' element={<MarvelList />} />
-          <Route path='/movie' element={<Movie />} />
+          <Route path='/marvel/:id' element={<Movie category="marvel"/>} />
         </Routes>
 
         <footer>

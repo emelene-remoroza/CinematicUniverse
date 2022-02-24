@@ -1,11 +1,11 @@
-import { SET_FRUITS } from '../actions'
+import { SET_MOVIE } from '../actions/movie'
 
-const initialState = []
+const initialState = {}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_FRUITS:
-      return action.fruits
+    case SET_MOVIE:
+      return action.movie
     default:
       return state
   }
