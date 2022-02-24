@@ -5,10 +5,9 @@ import { cacheUser } from '../auth0'
 import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
-
 import MarvelList from './MarvelList'
 import Footer from './Footer'
-import ErrMessage from './ErrMessage'
+// import ErrMessage from './ErrMessage'
 import Movie from './Movie'
 
 function App () {
@@ -33,7 +32,7 @@ function App () {
         <header>
 
           <Header/>
-          <ErrMessage />
+          {/* <ErrMessage /> */}
         </header>
 
         <Routes>
