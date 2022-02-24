@@ -5,6 +5,7 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 import store from './store'
 import App from './components/App'
+import { BrowserRouter } from 'react-router-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
@@ -17,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     >
 
       <Provider store={store}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Provider>
     </Auth0Provider>,
     document.getElementById('app')

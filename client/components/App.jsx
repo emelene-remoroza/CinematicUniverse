@@ -1,23 +1,23 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0'
-import { useSelector } from 'react-redux'
-// import { Routes, Route } from 'react-router-dom'
+// import { useSelector } from 'react-redux'
+import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
-import Body from './Body'
 import Footer from './Footer'
 import ErrMessage from './ErrMessage'
+import Marvel from './Marvel'
+import Movie from './Movie'
 
 function App () {
-  const user = useSelector(state => state.currentUser)
+  // const user = useSelector(state => state.currentUser)
   cacheUser(useAuth0)
 
   return (
     <>
       <div>
-        <div className='app'>
-          <h1>Trial</h1>
+        {/* <div className='app'>
           {user?.name && (
             <div>
               <div style={{ float: 'right' }}>
@@ -27,27 +27,21 @@ function App () {
             </div>
 
           )}
-        </div>
-
-        <div>
+        </div> */}
+        <header>
           <Header/>
           <ErrMessage />
-        </div>
+        </header>
 
-        <div>
-          <Body/>
-        </div>
+        <Routes>
+          <Route path='/' element={<>This is the home page</>} />
+          <Route path='/marvel' element={<Marvel />} />
+          <Route path='/movie' element={<Movie />} />
+        </Routes>
 
-        <div>
+        <footer>
           <Footer/>
-        </div>
-
-        {/* <Routes>
-          <Route exact path='/listings ' element={<Header/>} />
-          <Route path='/listings ' element={<Footer/>} />
-          <Route path='/listings ' element={<Body/>} />
-
-        </Routes> */}
+        </footer>
       </div>
     </>
   )
