@@ -1,6 +1,6 @@
 import { SET_MOVIE } from '../actions/movie'
 
-const initialState = {}
+const initialState = { Title: '' }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
