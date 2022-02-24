@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import fruits from './fruits'
+import marvel from './marvel'
 import errorMessage from '../reducers/errorMessage'
 
 export default combineReducers({
-  fruits,
+  marvel,
   errorMessage
 })
