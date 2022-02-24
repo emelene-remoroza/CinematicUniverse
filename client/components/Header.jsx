@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import styled from 'styled-components'
 
-// import { useSelector } from 'react-redux'
-
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 const NavGroup = styled.nav`
@@ -18,7 +16,6 @@ const NavLink = styled(Link)`
 function Header () {
   const { loginWithRedirect, logout } = useAuth0()
 
-  // const user = useSelector(state => state.currentUser)
   function handleLogOff (e) {
     e.preventDefault()
     logout()

@@ -1,13 +1,13 @@
-import { SET_ERROR } from '../actions/errMessage'
+// import { SET_ERROR } from '../actions/errMessage'
 
-function errorMessage (state = '', action) {
-  switch (action.type) {
-    case SET_ERROR:
-      return action.errorMessage
+// function errorMessage (state = '', action) {
+//   switch (action.type) {
+//     case SET_ERROR:
+//       return action.errorMessage
 
-    default:
-      return state
-  }
-}
+//     default:
+//       return state
+//   }
+// }
 
-export default errorMessage
+// export default errorMessage
