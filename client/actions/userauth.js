@@ -13,21 +13,3 @@ export function clearUser () {
     type: CLEAR_USER
   }
 }
-
-// ..........................................................
-// import { verifyUser } from '../apis/userauth'
-// import { setError } from './errMessage'
-
-// export function verifyUserHandler (user) {
-//   return async (dispatch) => {
-//     try {
-//       const status = await verifyUser(user)
-//       if (status.statusType === 2) {
-//         dispatch(setUser(user))
-//       }
-//     } catch (err) {
-//       dispatch(setError(err))
-//       dispatch(clearUser())
-//     }
-//   }
-// }
