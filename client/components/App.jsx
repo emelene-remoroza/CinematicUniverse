@@ -5,18 +5,18 @@ import { useSelector } from 'react-redux'
 // import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
-import Body from './Body'
+import MarvelList from './MarvelList'
 import Footer from './Footer'
 import ErrMessage from './ErrMessage'
 
 function App () {
-  const user = useSelector(state => state.currentUser)
+  // const user = useSelector(state => state.currentUser)
   cacheUser(useAuth0)
 
   return (
     <>
       <div>
-        <div className='app'>
+        {/* <div className='app'>
           <h1>Trial</h1>
           {user?.name && (
             <div>
@@ -27,7 +27,7 @@ function App () {
             </div>
 
           )}
-        </div>
+        </div> */}
 
         <div>
           <Header/>
@@ -35,7 +35,7 @@ function App () {
         </div>
 
         <div>
-          <Body/>
+          <MarvelList />
         </div>
 
         <div>

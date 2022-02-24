@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchMarvel } from '../actions'
 
-function Body () {
-  const fruits = useSelector(state => state.fruits)
+function MarvelList () {
+  const list = useSelector(state => state.marvel)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchMarvel())
@@ -13,14 +13,14 @@ function Body () {
   return (
 
     <div>
-      <h1>Body</h1>
+      <h1>Marvel Movie List </h1>
       <ul>
-        {fruits.map(fruit => (
-          <li key={fruit}>{fruit}</li>
+        {list.map(movie => (
+          <li key={movie.id}>{JSON.stringify(movie)}</li>
         ))}
       </ul>
     </div>
   )
 }
 
-export default Body
+export default MarvelList
