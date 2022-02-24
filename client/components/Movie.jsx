@@ -7,8 +7,7 @@ export default function Movie (props) {
   const dispatch = useDispatch()
   const { id } = useParams()
   const movie = useSelector(state => state[props.category].find(movie => movie.id === Number(id)))
-  const movieApi = useSelector(state => state.movie)
-  console.log(movieApi)
+
   const title = movie?.Title
 
   const releaseDate = new Date(movie?.Released)
@@ -16,7 +15,8 @@ export default function Movie (props) {
   console.log(title, year)
 
   useEffect(() => {
-    dispatch(fetchMovie(title, year))
+    // fetchMovie(title, year)
+    //   .then
   }, [])
 
   return (
