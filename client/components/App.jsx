@@ -5,9 +5,10 @@ import { cacheUser } from '../auth0'
 import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
+
+import MarvelList from './MarvelList'
 import Footer from './Footer'
 import ErrMessage from './ErrMessage'
-import Marvel from './Marvel'
 import Movie from './Movie'
 
 function App () {
@@ -18,6 +19,7 @@ function App () {
     <>
       <div>
         {/* <div className='app'>
+
           {user?.name && (
             <div>
               <div style={{ float: 'right' }}>
@@ -29,13 +31,14 @@ function App () {
           )}
         </div> */}
         <header>
+
           <Header/>
           <ErrMessage />
         </header>
 
         <Routes>
           <Route path='/' element={<>This is the home page</>} />
-          <Route path='/marvel' element={<Marvel />} />
+          <Route path='/marvel' element={<MarvelList />} />
           <Route path='/movie' element={<Movie />} />
         </Routes>
 
