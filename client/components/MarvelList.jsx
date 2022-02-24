@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchMarvel } from '../actions'
+import { fetchMarvel } from '../actions/marvel'
 
 function MarvelList () {
   const list = useSelector(state => state.marvel)

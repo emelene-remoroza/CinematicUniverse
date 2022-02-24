@@ -1,4 +1,4 @@
-import { SET_MARVEL } from '../actions'
+import { SET_MARVEL } from '../actions/marvel'
 
 const initialState = []
 
