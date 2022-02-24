@@ -1,17 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import styled from 'styled-components'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-
-const NavGroup = styled.nav`
-  float: right;
-`
-
-const NavLink = styled(Link)`
-  margin-right: 30px;
-`
 
 function Header () {
   const { loginWithRedirect, logout } = useAuth0()
@@ -23,7 +13,7 @@ function Header () {
 
   function handleRegister (e) {
     e.preventDefault()
-    return loginWithRedirect({ redirectUri: `${window.location.origin}/register` })
+    return loginWithRedirect()
   }
 
   function handleSignIn (e) {
@@ -34,16 +24,13 @@ function Header () {
   return (
     <>
 
-      <NavGroup>
-        <NavLink to='/'>Home</NavLink>
-        <IfAuthenticated>
-          <a href='/' onClick={handleLogOff}>Logout</a>
-        </IfAuthenticated>
-        <IfNotAuthenticated>
-          <a href='/' onClick={handleRegister}>Register</a>
-          <a href='/' onClick={handleSignIn}>Sign in</a>
-        </IfNotAuthenticated>
-      </NavGroup>
+      <IfAuthenticated>
+        <a href='/' onClick={handleLogOff}>Logout</a>
+      </IfAuthenticated>
+      <IfNotAuthenticated>
+        <a href='/' onClick={handleRegister}>Register</a>
+        <a href='/' onClick={handleSignIn}>Sign in</a>
+      </IfNotAuthenticated>
       <h1>Movies</h1>
 
     </>

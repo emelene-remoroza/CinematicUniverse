@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { addUser } from '../apis/userauth'
 
-// import { GridForm, ColOne, ColTwo, Button } from './Styled'
-
 function Register () {
   const user = useSelector(state => state)
   const history = useHistory()
@@ -32,22 +30,6 @@ function Register () {
       <div>{form.auth0Id}</div>
       <div>{form.email}</div>
       <a href='/' onClick={handleClick}>Register</a>
-
-      {/* <GridForm>
-        <ColOne htmlFor='username'>Auth0 Id:</ColOne>
-        <ColTwo type='text'id='auth0Id'name='auth0Id'value={form.auth0Id} disabled={true}
-        />
-
-        <ColOne htmlFor='email'>Email:</ColOne>
-        <ColTwo type='text'
-          id='email'
-          name='email'
-          value={form.email}
-          disabled={true}
-        />
-
-        <Button type='button' onClick={handleClick}>Register</Button>
-      </GridForm> */}
     </>
   )
 }
