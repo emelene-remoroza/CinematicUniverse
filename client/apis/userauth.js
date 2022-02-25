@@ -1,15 +1,21 @@
 import request from 'superagent'
+const rootUrl = '/api/v1'
 
-const usersApiUrl = '/api/v1/users'
+export async function addUser (user) {
+  return request.post(`${rootUrl}/users`)
+    .send(user)
+    .catch(logError)
+}
 
-export function verifyUser (user) {
-  if (!user.token) return ({ statusType: 4, statusCode: 401, statusMessage: 'No token provided' })
-  const { name, githubUsername, email, picture } = user
-  return request
-    .post(`${usersApiUrl}/verify`)
-    .set('Authorization', `Bearer ${user.token}`)
-    .send({ name, githubUsername, email, picture })
-    .then(({ statusType, statusText, statusCode }) => {
-      return { statusType, statusText, statusCode }
-    })
+function logError (err) {
+  if (err.message === 'Forbidden') {
+    throw new Error('Only the user who added the fruit may update and delete it')
+  } else {
+    // eslint-disable-next-line no-console
+    console.error(
+      'Error consuming the API (in client/api.js):',
+      err.message
+    )
+    throw err
+  }
 }
