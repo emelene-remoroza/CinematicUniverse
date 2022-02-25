@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-
-import { fetchMarvel } from '../actions/marvel'
 
 function MarvelList () {
   const list = useSelector(state => state.marvel)
-  const dispatch = useDispatch()
+
   const [order, setOrder] = useState('ChronoDate')
-  useEffect(() => {
-    dispatch(fetchMarvel())
-  }, [])
+
   const sortedList = list.sort((a, b) => new Date(a[order]) - new Date(b[order]))
 
   return (
