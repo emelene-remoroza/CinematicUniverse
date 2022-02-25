@@ -3,7 +3,8 @@ const connection = require('./connection')
 module.exports = {
   userExists,
   getUserByName,
-  createUser
+  createUser,
+  getUserById
 }
 
 function userExists (username, db = connection) {
@@ -23,6 +24,21 @@ function getUserByName (username, db = connection) {
 }
 
 function createUser (user, db = connection) {
+  console.log('hello its summer')
   return db('users')
     .insert(user)
 }
+
+function getUserById (userName, db = connection) {
+  return db('users')
+    .select()
+    .where('auth0_id', userName)
+}
+
+// function addUser (user, db = connection) {
+//   return db('users')
+//     .insert(user)
+//     .then(() => db)
+//     .then(getUsers)
+//     .then(sort)
+// }

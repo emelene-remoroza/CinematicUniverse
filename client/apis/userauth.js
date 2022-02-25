@@ -2,9 +2,17 @@ import request from 'superagent'
 const rootUrl = '/api/v1'
 
 export async function addUser (user) {
+  console.log('lala lulu ')
   return request.post(`${rootUrl}/users`)
     .send(user)
     .catch(logError)
+}
+
+export function fetchUser (id) {
+  return request.get(`${rootUrl}/user/${id}`)
+    .then(response => {
+      return response.body.user
+    })
 }
 
 function logError (err) {

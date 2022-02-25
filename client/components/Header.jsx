@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function Header () {
-  const { loginWithRedirect, logout } = useAuth0()
+  // useEffect ((){
+  //   fetchUser(check this)
+  //   .then
+  // })
+
+  const { loginWithRedirect, user, logout } = useAuth0()
 
   function handleLogOff (e) {
     e.preventDefault()
@@ -24,6 +29,9 @@ function Header () {
   return (
     <>
       <IfAuthenticated>
+        {user?.name}
+        {user?.email}
+        {user?.id}
         <a href='/' onClick={handleLogOff}>Logout</a>
       </IfAuthenticated>
       <IfNotAuthenticated>
