@@ -9,7 +9,7 @@ module.exports = {
 
 function getWatchlist (id, db = connection) {
   return db('watchList')
-    .join('users', 'users.id', 'watchList.user_id')
+    // .join('users', 'users.id', 'watchList.user_id')
     .select()
     .where('user_id', id)
 }
