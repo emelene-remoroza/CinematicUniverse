@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive font sizes */
+html {
+  font-size:1rem;
+ }
+
+@media (min-width:640px) and (max-width:1023px) {
+html {
+  font-size: 1.0625rem;
+}
+}
+
+@media (min-width:1024px) and (max-width:1279px) {
+html {
+  font-size: 1.125rem;
+}
+}
+
+@media (min-width:1280px) {
+html {
+  font-size: 1.1875rem;
+}
+}
+
+/* Base Font Styling */
+h1 {
+    font-family: 'Squada One', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2, h3, h4 {
+    font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p, a:link {
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+  color: #5D3FD3;
+}
+
+a:active {
+  color: #CBC3E3;
+}
+
+/* Header Styling */
+.login-bar {
+  background-color: white;
+  text-align: right;
+  margin: 0.5em;
+}
+
+.login-bar a {
+  padding-right: 0.75em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  .login-bar a {
+    font-size: 0.8rem;
+    padding-right: 0.5em;
+  }
+}
+
+.logo-bar {
+  background-color: black;
+  width: 100%;
+  text-align: center;
+}
+
+.logo-bar img {
+  margin: 2em;
+  width: 400px;
+}
+
+@media screen and (max-width: 480px) {
+  .logo-bar img {
+    margin: 1em;
+    width: 80%;
+  }
+}
