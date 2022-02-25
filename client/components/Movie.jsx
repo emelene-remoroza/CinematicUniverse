@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 import { fetchMovie } from '../apis/movie'
 
 export default function Movie (props) {
-  const { id } = useParams()
-  const movie = useSelector(state => state[props.category].find(movie => movie.id === Number(id)))
-  const [movieDetail, setMovieDetail] = useState('')
+  const id = Number(useParams().id)
+  const movieArr = useSelector(state => state[props.category])
+  const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
+  const [movieDetail, setMovieDetail] = useState({ Ratings: [] })
+  console.log(movieDetail)
 
   const title = movie?.Title
-
   const releaseDate = new Date(movie?.Released)
   const year = releaseDate.getFullYear()
 
   useEffect(() => {
     fetchMovie(title, year)
       .then(res => {
-        setMovieDetail(res)
+        res.Ratings && setMovieDetail(res)
         return null
       })
       .catch((err) => {
@@ -24,13 +26,31 @@ export default function Movie (props) {
       })
   }, [title, year])
 
-  console.log(movieDetail)
+  const ratings = movieDetail?.Ratings.map(rating => {
+    return <p key={rating.Source}><strong>{rating.Source}</strong> {rating.Value}</p>
+  })
+
   return (
     <div className='movie-page'>
-
-      {movie && <img height={500} src={`/images/marvel/${movie?.Image}`}/>}
       {movie && <h2>{title}</h2>}
+      <img height={500} src={`/images/marvel/${movie?.Image}`}/>
       <h3>{movieDetail?.Year}</h3>
-      <p>{movieDetail?.Plot}</p>
-    </div>)
+      <h4>{movieDetail?.Rated}</h4>
+      <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
+      <p>{movieDetail?.Runtime}</p>
+      <div>{ratings}</div>
+
+      <div className='emd-vid'>
+        <iframe
+          className='responsive-iframe'
+          src={movie?.Trailer}
+          title="YouTube video player"
+          frameBorder="0"
+          allowFullScreen>
+        </iframe>
+      </div>
+      {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button>Prev</button></Link>}
+      {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button>Next</button></Link>}
+    </div>
+  )
 }
