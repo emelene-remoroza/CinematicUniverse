@@ -29,6 +29,8 @@ html {
 /* Base Font Styling */
 h1 {
     font-family: 'Squada One', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    width: 100%;
     margin: 1em 0em 0em 0em;
 }
 
@@ -119,9 +121,114 @@ a:active {
   max-width: 100%;
 }
 
+/* **ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE** */
+/* Change className in NEW component - line 14 */
+/* Then add new CSS container below with new background image and color */
+.marvel-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/marvel/marvel-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: #b20000;
+}
+/* ^^ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE^^*/
+
+/* List page styling */
+.list-logo {
+  width: 20%;
+  margin-top: 1.5rem;
+}
+
+.poster {
+  display: inline-block;
+  position: relative;
+  color: white;
+  width: 200px;
+  margin: 1rem 0.5rem;
+}
+
+.poster img {
+  width: 200px;
+}
+
+.poster:hover img {
+  filter: brightness(40%);
+}
+
+.poster-title {
+    position: absolute;
+    top: 30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+  
+.poster:hover .poster-title {
+  visibility: visible;
+  opacity: 1;
+}
+
+.poster p {
+  margin-top: 0;
+}
+
+.order-buttons {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.chrono-button {
+  border-right: 1px solid white !important
+}
+
+@media screen and (max-width: 480px) {
+  .chrono-button {
+    border-right: none !important;
+  }
+}
+
+.order-buttons button {
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  border: none;
+  margin: 0.5em 0.3em 0.3em 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.order-buttons button:hover {
+  color:#DDDDDD;
+}
+
+.order-buttons button:active {
+  color:#BBBBBB;
+}
+
+@media all and (max-width:30em) {
+  .order-buttons button{
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
 /* Footer styling */
 
 footer {
   font-size: 0.7rem;
   text-align: center;
+  margin: 1em;
 }
