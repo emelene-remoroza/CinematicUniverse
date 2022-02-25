@@ -40,10 +40,15 @@ h2, h3, h4 {
 p, a:link {
     font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
     margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+a:link {
+  color: #575757;
 }
 
 a:visited {
-    color: black;
+    color: #575757;
 }
 
 a:hover {
@@ -64,7 +69,6 @@ a:active {
 .login-bar a {
   padding-right: 0.75em;
   text-transform: uppercase;
-  text-decoration: none;
 }
 
 @media screen and (max-width: 480px) {
@@ -96,7 +100,6 @@ a:active {
 .home-container {
   display: flex;
   flex-wrap: wrap;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -114,4 +117,11 @@ a:active {
 
 .home-container img {
   max-width: 100%;
+}
+
+/* Footer styling */
+
+footer {
+  font-size: 0.7rem;
+  text-align: center;
 }
