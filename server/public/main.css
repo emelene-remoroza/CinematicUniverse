@@ -29,14 +29,17 @@ html {
 /* Base Font Styling */
 h1 {
     font-family: 'Squada One', 'Arial Narrow', Arial, sans-serif;
+    margin: 1em 0em 0em 0em;
 }
 
 h2, h3, h4 {
     font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0.75em 0em 0em 0em;
 }
 
 p, a:link {
     font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    margin-top: 0.5rem;
 }
 
 a:visited {
@@ -87,4 +90,28 @@ a:active {
     margin: 1em;
     width: 80%;
   }
+}
+
+/* Home page styling */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.home-container p {
+  width: 100%;
+  text-align: center;
+  padding: 2em;
+}
+
+.home-container a {
+  display: inline-block;
+  max-width: 300px;
+  margin: 2rem;
+}
+
+.home-container img {
+  max-width: 100%;
 }
