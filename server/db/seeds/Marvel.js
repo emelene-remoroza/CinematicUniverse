@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex('Marvel').del()
     .then(function () {
       return knex('Marvel').insert([
-        { id: 1, Title: 'Captain America: The First Avenger', Released: '2011-07-22', ChronoDate: '1942-01-01', Image: 'captain-america-the-first-avenger.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/JerVrbLldXw' },
+        { id: 1, Title: 'Captain America: The First Avenger', Released: '2011-07-22', ChronoDate: '1942-01-01', Image: 'captain-america-the-first-avenger.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/W4DlMggBPvc' },
         { id: 2, Title: 'Captain Marvel', Released: '2019-03-08', ChronoDate: '1995-01-01', Image: 'captain-marvel-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/Z1BCujX3pw8' },
         { id: 3, Title: 'Iron Man', Released: '2008-05-02', ChronoDate: '2010-01-01', Image: 'iron-man-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/byQpcN78UjQ' },
         { id: 4, Title: 'Iron Man 2', Released: '2010-05-07', ChronoDate: '2011-01-01', Image: 'iron-man-2.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/DIfgxIv5xmk' },
