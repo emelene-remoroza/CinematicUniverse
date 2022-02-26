@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-/* **ADD NEW BACKGROUND WHEN ADDING A NEW FRANCHISE** */
+/* **ADD NEW BACKGROUNDS WHEN ADDING A NEW FRANCHISE** */
 /* Change className in NEW component - line 14 */
 /* Then add new CSS container below with new background image and color */
 .marvel-container {
@@ -16,6 +16,7 @@
   background-position-x: center;
   background-color: #b20000;
 }
+/* This class will automatically be added just use the param name for the franchise i.e. .starwars-movie */
 .marvel-movie {
   display: flex;
   flex-wrap: wrap;
@@ -26,7 +27,7 @@
   background-position-x: center;
   background-color: white;
 }
-/* ^^ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE^^*/
+/* ^^ADD NEW BACKGROUNDS WHEN ADDING A NEW FANCHISE^^*/
 
 /* Responsive font sizes */
 html {
@@ -240,7 +241,6 @@ a:active {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -250,7 +250,7 @@ a:active {
   }
 }
 
-.movie-view button {
+.arrow-buttons button {
   height: 60%;
   width: 6rem;
   border: none;
@@ -268,15 +268,15 @@ a:active {
   opacity: 0.5;
 }
 
-.movie-view button:hover {
-  color:#DDDDDD;
+.arrow-buttons button:hover {
+  color:#CBC3E3;
   background-color: #5D3FD3;
   filter: invert(0%);
   opacity: 0.5;
 }
 
-.movie-view button:active {
-  color:#BBBBBB;
+.arrow-buttons button:active {
+  color:#CBC3E3;
 }
 
 .previous {
@@ -372,6 +372,28 @@ a:active {
     margin: 32px 0 2rem 0;
   }
 }
+
+.watch-list-button {
+	background-color: #5D3FD3;
+	border: 0 solid white;
+	display: block;
+	cursor: pointer;
+	color: white;
+	font-size: 1rem;
+  font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+	padding: 6px 24px;
+  margin-top: 0.5rem;
+	text-decoration: none;
+}
+.watch-list-button:hover {
+	background: linear-gradient(to bottom, #CBC3E3 5%, #5D3FD3 100%);
+	background-color: #5D3FD3;
+}
+.watch-list-button:active {
+	position: relative;
+	top: 1px;
+}
+
 
 /* Footer styling */
 

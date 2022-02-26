@@ -51,11 +51,16 @@ export default function Movie (props) {
           <h4>{movieDetail?.Rated}</h4>
           <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
           <p>{movieDetail?.Runtime}</p>
+
+          {/* Watchlist button added but still needs click handler */}
+          <button className='watch-list-button'>Add to WatchList</button>
+
           <div>{ratings}</div>
         </div>
-
-        {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button className='previous'>&#8249;</button></Link>}
-        {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button className='next'>&#8250;</button></Link>}
+        <div className='arrow-buttons'>
+          {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button className='previous'>&#8249;</button></Link>}
+          {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button className='next'>&#8250;</button></Link>}
+        </div>
       </div>
     </div>
   )
