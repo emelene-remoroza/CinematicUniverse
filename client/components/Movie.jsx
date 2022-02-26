@@ -31,26 +31,32 @@ export default function Movie (props) {
   })
 
   return (
-    <div className='movie-page'>
-      {movie && <h2>{title}</h2>}
-      <img height={500} src={`/images/marvel/${movie?.Image}`}/>
-      <h3>{movieDetail?.Year}</h3>
-      <h4>{movieDetail?.Rated}</h4>
-      <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
-      <p>{movieDetail?.Runtime}</p>
-      <div>{ratings}</div>
+    <div className={`${props.category}-movie`}>
+      <div className='movie-view'>
 
-      <div className='emd-vid'>
-        <iframe
-          className='responsive-iframe'
-          src={movie?.Trailer}
-          title="YouTube video player"
-          frameBorder="0"
-          allowFullScreen>
-        </iframe>
+        <div className='emd-vid'>
+          <iframe
+            className='responsive-iframe'
+            src={movie?.Trailer}
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen>
+          </iframe>
+        </div>
+
+        <img src={`/images/marvel/${movie?.Image}`}/>
+        <div className='movie-details'>
+          {movie && <h2>{title}</h2>}
+          <h3>{movieDetail?.Year}</h3>
+          <h4>{movieDetail?.Rated}</h4>
+          <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
+          <p>{movieDetail?.Runtime}</p>
+          <div>{ratings}</div>
+        </div>
+
+        {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button className='previous'>&#8249;</button></Link>}
+        {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button className='next'>&#8250;</button></Link>}
       </div>
-      {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button>Prev</button></Link>}
-      {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button>Next</button></Link>}
     </div>
   )
 }

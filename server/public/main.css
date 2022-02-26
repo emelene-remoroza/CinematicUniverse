@@ -3,24 +3,49 @@
   padding: 0;
 }
 
+/* **ADD NEW BACKGROUND WHEN ADDING A NEW FRANCHISE** */
+/* Change className in NEW component - line 14 */
+/* Then add new CSS container below with new background image and color */
+.marvel-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/marvel/marvel-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: #b20000;
+}
+.marvel-movie {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/marvel/marvel-movie-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: white;
+}
+/* ^^ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE^^*/
+
 /* Responsive font sizes */
 html {
   font-size:1rem;
- }
+}
 
-@media (min-width:640px) and (max-width:1023px) {
+@media screen and (max-width: 863px) and (min-width: 640px) {
 html {
   font-size: 1.0625rem;
 }
 }
 
-@media (min-width:1024px) and (max-width:1279px) {
+@media screen and (max-width: 1155px) and (min-width: 864px)  {
 html {
   font-size: 1.125rem;
 }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1156px) {
 html {
   font-size: 1.1875rem;
 }
@@ -121,21 +146,6 @@ a:active {
   max-width: 100%;
 }
 
-/* **ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE** */
-/* Change className in NEW component - line 14 */
-/* Then add new CSS container below with new background image and color */
-.marvel-container {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
-  background-image: url('/images/marvel/marvel-bg.jpg');
-  background-size: cover;
-  background-position-x: center;
-  background-color: #b20000;
-}
-/* ^^ADD NEW BACKGROUND WHEN ADDING A NEW FANCHISE^^*/
-
 /* List page styling */
 .list-logo {
   width: 20%;
@@ -222,6 +232,142 @@ a:active {
   .order-buttons button{
     display: block;
     margin: 0.4em auto;
+  }
+}
+
+/* Movie page styling */
+.movie-view {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+@media (min-width: 801px) and (max-width: 1155px) {
+  .movie-view {
+    max-width: 864px;
+  }
+}
+
+.movie-view button {
+  height: 60%;
+  width: 6rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 6rem;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  filter: invert(50%);
+  opacity: 0.5;
+}
+
+.movie-view button:hover {
+  color:#DDDDDD;
+  background-color: #5D3FD3;
+  filter: invert(0%);
+  opacity: 0.5;
+}
+
+.movie-view button:active {
+  color:#BBBBBB;
+}
+
+.previous {
+  position: fixed;
+  top: 20%;
+  left: 0;
+
+}
+
+.next {
+  position: fixed;
+  top: 20%;
+  right: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .emd-vid {
+    position: relative; 
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .emd-vid {
+    position: relative;
+    overflow: hidden;
+    width: 800px; 
+    height: 450px;
+  }
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-view img {
+  height: 418px;
+  margin: 32px 2em 0em 2em;
+}
+
+@media screen and (max-width: 480px) {
+  .movie-view img {
+    height: 320px;
+  }
+}
+
+.movie-view h2 {
+  width: 100%;
+  text-align: left;
+  margin-top: 0;
+}
+
+.movie-view h2, h3, h4 {
+  display: inline;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 863px) {
+  .movie-view h2 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  .movie-details {
+    width: 100%;
+    margin: 2em;
+  }
+}
+
+@media screen and (max-width: 1155px) and (min-width: 864px) {
+  .movie-details {
+    width: 473px;
+    margin: 32px 2rem 2rem 0;
+  }
+}
+
+@media screen and (min-width: 1156px) {
+  .movie-details {
+    width: 1120px;
+    margin: 32px 0 2rem 0;
   }
 }
 
