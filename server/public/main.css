@@ -323,7 +323,7 @@ a:active {
 
 .movie-view img {
   height: 418px;
-  margin: 32px 2em 0em 2em;
+  margin: 32px 0em 0em 2em;
 }
 
 @media screen and (max-width: 480px) {
@@ -345,6 +345,7 @@ a:active {
 
 @media screen and (max-width: 863px) {
   .movie-view h2 {
+    display: block;
     width: 100%;
     text-align: center;
   }
@@ -360,7 +361,7 @@ a:active {
 @media screen and (max-width: 1155px) and (min-width: 864px) {
   .movie-details {
     width: 473px;
-    margin: 32px 2rem 2rem 0;
+    margin: 32px 2rem 2rem 2rem;
   }
 }
 
