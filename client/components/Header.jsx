@@ -20,7 +20,7 @@ function Header () {
     e.preventDefault()
     loginWithRedirect()
   }
-  console.log(user)
+
   return (
     <>
       <div className='login-bar'>
