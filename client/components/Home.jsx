@@ -11,6 +11,9 @@ export default function Home () {
       <Link to={'/marvel'} aria-label='Marvel'>
         <img src='/images/marvel/marvel.svg' alt='marvel-logo' />
       </Link>
+      <Link to={'/starwars'} aria-label='Starwars'>
+        <img src='/images/starwars/starwars.svg' alt='starwars-logo' />
+      </Link>
 
     </div>
   )

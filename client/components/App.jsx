@@ -6,10 +6,12 @@ import { cacheUser } from '../auth0'
 import { Routes, Route } from 'react-router-dom'
 
 import { fetchMarvel } from '../actions'
+import { fetchStarWars } from '../actions/starwars'
 
 import Header from './Header'
 import Movie from './Movie'
 import MarvelList from './MarvelList'
+import StarWarsList from './StarWarsList'
 import Footer from './Footer'
 import Home from './Home'
 
@@ -19,6 +21,10 @@ function App () {
 
   useEffect(() => {
     dispatch(fetchMarvel())
+  }, [])
+
+  useEffect(() => {
+    dispatch(fetchStarWars())
   }, [])
 
   return (
@@ -32,6 +38,8 @@ function App () {
           <Route path='/' element={<Home />} />
           <Route path='/marvel' element={<MarvelList />} />
           <Route path='/marvel/:id' element={<Movie category="marvel"/>} />
+          <Route path='/starwars' element={<StarWarsList />} />
+          <Route path='/starwars/:id' element={<Movie category="starwars"/>} />
         </Routes>
 
         <footer>
