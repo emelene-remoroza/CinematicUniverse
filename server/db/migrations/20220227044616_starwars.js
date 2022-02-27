@@ -4,6 +4,7 @@ exports.up = function (knex) {
     table.string('Title')
     table.datetime('Released')
     table.datetime('ChronoDate')
+    table.string('Period')
     table.string('Image')
     table.string('Trailer')
   })
