@@ -9,7 +9,6 @@ export default function Movie (props) {
   const movieArr = useSelector(state => state[props.category])
   const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
   const [movieDetail, setMovieDetail] = useState({ Ratings: [] })
-  console.log(movieDetail)
 
   const title = movie?.Title
   const releaseDate = new Date(movie?.Released)

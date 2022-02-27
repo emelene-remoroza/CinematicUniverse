@@ -171,6 +171,7 @@ a:active {
 
 .poster-title {
     position: absolute;
+    margin: auto;
     top: 30%;
     bottom: 0;
     left: 0;
