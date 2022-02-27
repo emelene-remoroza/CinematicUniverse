@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { fetchMovie } from '../apis/movie'
+import { addToWatchlist } from '../apis/watchlist.js'
 
 export default function Movie (props) {
   const id = Number(useParams().id)
@@ -13,6 +14,16 @@ export default function Movie (props) {
   const title = movie?.Title
   const releaseDate = new Date(movie?.Released)
   const year = releaseDate.getFullYear()
+
+  function onClickHandler () {
+    addToWatchlist(id)
+      .then(() => {
+        console.log('added')
+        //  redirect('/watchlist')
+        return null
+      })
+      .catch(e => console.log(e))
+  }
 
   useEffect(() => {
     fetchMovie(title, year)
@@ -52,7 +63,7 @@ export default function Movie (props) {
           <p>{movieDetail?.Runtime}</p>
 
           {/* Watchlist button added but still needs click handler */}
-          <button className='watch-list-button'>Add to WatchList</button>
+          <button className='watch-list-button' onClick={ onClickHandler }>Add to WatchList</button>
 
           <div>{ratings}</div>
         </div>

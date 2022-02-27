@@ -16,7 +16,7 @@ function getWatchlist (id, db = connection) {
 
 function addMovie (id, marvelId, db = connection) {
   return db('watchList')
-    .insert({ marvel_id: marvelId, id })
+    .insert({ marvel_id: marvelId, user_id: id })
     .then(id => {
       return getWatchlist(id)
     })

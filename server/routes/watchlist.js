@@ -13,3 +13,13 @@ router.get('/:id', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
+router.post('/', (req, res) => {
+  const { marvelId } = req.body
+  const id = 'auth0|567'
+  db.addMovie(id, marvelId)
+    .then(results => {
+      return res.json(results)
+    })
+    .catch(e => console.log(e))
+})
