@@ -23,14 +23,18 @@ function Header () {
 
   return (
     <>
-      <IfAuthenticated>
-        <a href='/' onClick={handleLogOff}>Logout</a>
-      </IfAuthenticated>
-      <IfNotAuthenticated>
-        <a href='/' onClick={handleRegister}>Register</a>
-        <a href='/' onClick={handleSignIn}>Sign in</a>
-      </IfNotAuthenticated>
-      <h1>Movies</h1>
+      <div className='login-bar'>
+        <IfAuthenticated>
+          <a href='/' onClick={handleLogOff}>Logout</a>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <a href='/' onClick={handleRegister}>Register</a>
+          <a href='/' onClick={handleSignIn}>Sign in</a>
+        </IfNotAuthenticated>
+      </div>
+      <div className='logo-bar'>
+        <img src="/images/watch-verse-logo.svg" alt="watch-verse logo with movie reel icon" />
+      </div>
     </>
   )
 }
