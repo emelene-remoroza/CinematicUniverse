@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* **ADD NEW BACKGROUNDS WHEN ADDING A NEW FRANCHISE** */
+/* Change className in NEW component - line 14 */
+/* Then add new CSS container below with new background image and color */
+.marvel-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/marvel/marvel-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: #b20000;
+}
+/* This class will automatically be added just use the param name for the franchise i.e. .starwars-movie */
+.marvel-movie {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/marvel/marvel-movie-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: white;
+}
+/* ^^ADD NEW BACKGROUNDS WHEN ADDING A NEW FANCHISE^^*/
+
+/* Responsive font sizes */
+html {
+  font-size:1rem;
+}
+
+@media screen and (max-width: 863px) and (min-width: 640px) {
+html {
+  font-size: 1.0625rem;
+}
+}
+
+@media screen and (max-width: 1155px) and (min-width: 864px)  {
+html {
+  font-size: 1.125rem;
+}
+}
+
+@media (min-width:1156px) {
+html {
+  font-size: 1.1875rem;
+}
+}
+
+/* Base Font Styling */
+h1 {
+    font-family: 'Squada One', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    width: 100%;
+    margin: 1em 0em 0em 0em;
+}
+
+h2, h3, h4 {
+    font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0.75em 0em 0em 0em;
+}
+
+p, a:link {
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+a:link {
+  color: #575757;
+}
+
+a:visited {
+    color: #575757;
+}
+
+a:hover {
+  color: #5D3FD3;
+}
+
+a:active {
+  color: #CBC3E3;
+}
+
+/* Header Styling */
+.login-bar {
+  background-color: white;
+  text-align: right;
+  margin: 0.5em;
+}
+
+.login-bar a {
+  padding-right: 0.75em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 480px) {
+  .login-bar a {
+    font-size: 0.8rem;
+    padding-right: 0.5em;
+  }
+}
+
+.logo-bar {
+  background-color: black;
+  width: 100%;
+  text-align: center;
+}
+
+.logo-bar img {
+  margin: 2em;
+  width: 400px;
+}
+
+@media screen and (max-width: 480px) {
+  .logo-bar img {
+    margin: 1em;
+    width: 80%;
+  }
+}
+
+/* Home page styling */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-container p {
+  width: 100%;
+  text-align: center;
+  padding: 2em;
+}
+
+.home-container a {
+  display: inline-block;
+  max-width: 300px;
+  margin: 2rem;
+}
+
+.home-container img {
+  max-width: 100%;
+}
+
+/* List page styling */
+.list-logo {
+  width: 20%;
+  margin-top: 1.5rem;
+}
+
+.poster {
+  display: inline-block;
+  position: relative;
+  color: white;
+  width: 200px;
+  margin: 1rem 0.5rem;
+}
+
+.poster img {
+  width: 200px;
+}
+
+.poster:hover img {
+  filter: brightness(40%);
+}
+
+.poster-title {
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+  
+.poster:hover .poster-title {
+  visibility: visible;
+  opacity: 1;
+}
+
+.poster p {
+  margin-top: 0;
+}
+
+.order-buttons {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.chrono-button {
+  border-right: 1px solid white !important
+}
+
+@media screen and (max-width: 480px) {
+  .chrono-button {
+    border-right: none !important;
+  }
+}
+
+.order-buttons button {
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  border: none;
+  margin: 0.5em 0.3em 0.3em 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.order-buttons button:hover {
+  color:#DDDDDD;
+}
+
+.order-buttons button:active {
+  color:#BBBBBB;
+}
+
+@media all and (max-width:30em) {
+  .order-buttons button{
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+/* Movie page styling */
+.movie-view {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  justify-content: center;
+}
+
+@media (min-width: 801px) and (max-width: 1155px) {
+  .movie-view {
+    max-width: 864px;
+  }
+}
+
+.arrow-buttons button {
+  height: 60%;
+  width: 6rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 6rem;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  filter: invert(50%);
+  opacity: 0.5;
+}
+
+.arrow-buttons button:hover {
+  color:#CBC3E3;
+  background-color: #5D3FD3;
+  filter: invert(0%);
+  opacity: 0.5;
+}
+
+.arrow-buttons button:active {
+  color:#CBC3E3;
+}
+
+.previous {
+  position: fixed;
+  top: 20%;
+  left: 0;
+
+}
+
+.next {
+  position: fixed;
+  top: 20%;
+  right: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .emd-vid {
+    position: relative; 
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .emd-vid {
+    position: relative;
+    overflow: hidden;
+    width: 800px; 
+    height: 450px;
+  }
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-view img {
+  height: 418px;
+  margin: 32px 0em 0em 2em;
+}
+
+@media screen and (max-width: 863px) {
+  .movie-view img {
+    height: 320px;
+    margin: 32px auto;
+  }
+}
+
+.movie-view h2 {
+  width: 100%;
+  text-align: left;
+  margin-top: 0;
+}
+
+.movie-view h2, h3, h4 {
+  display: inline;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 863px) {
+  .movie-view h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  .movie-details {
+    width: 100%;
+    margin: 2em;
+  }
+}
+
+@media screen and (max-width: 1155px) and (min-width: 864px) {
+  .movie-details {
+    width: 473px;
+    margin: 32px 2rem 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 2240px) and (min-width: 1156px) {
+  .movie-details {
+    width: 1120px;
+    margin: 32px 0 2rem 0;
+  }
+}
+
+@media screen and (min-width: 2240px) {
+  .movie-details {
+    width: 1120px;
+    margin: 32px 2rem 2rem 2rem;
+  }
+}
+
+.watch-list-button {
+	background-color: #5D3FD3;
+	border: 0 solid white;
+	display: block;
+	cursor: pointer;
+	color: white;
+	font-size: 1rem;
+  font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+	padding: 6px 24px;
+  margin-top: 0.5rem;
+	text-decoration: none;
+}
+.watch-list-button:hover {
+	background: linear-gradient(to bottom, #CBC3E3 5%, #5D3FD3 100%);
+	background-color: #5D3FD3;
+}
+.watch-list-button:active {
+	position: relative;
+	top: 1px;
+}
+
+
+/* Footer styling */
+
+footer {
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 1em;
+}

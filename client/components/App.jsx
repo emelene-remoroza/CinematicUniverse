@@ -11,6 +11,7 @@ import Header from './Header'
 import Movie from './Movie'
 import MarvelList from './MarvelList'
 import Footer from './Footer'
+import Home from './Home'
 
 function App () {
   cacheUser(useAuth0)
@@ -28,7 +29,7 @@ function App () {
         </header>
 
         <Routes>
-          <Route path='/' element={<>This is the home page</>} />
+          <Route path='/' element={<Home />} />
           <Route path='/marvel' element={<MarvelList />} />
           <Route path='/marvel/:id' element={<Movie category="marvel"/>} />
         </Routes>

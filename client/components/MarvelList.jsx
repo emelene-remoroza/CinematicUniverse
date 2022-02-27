@@ -11,17 +11,20 @@ function MarvelList () {
 
   return (
 
-    <div>
-      <h1>Marvel Movie List </h1>
-      <button onClick={() => { setOrder('ChronoDate') }}>Sort by Chronological Order</button>
-      <button onClick={() => { setOrder('Released') }}>Sort by Release Date</button>
+    <div className='marvel-container'>
+      <img src='/images/marvel/marvel.svg' alt='marvel-logo' className='list-logo'/>
+      <h1>Marvel Cinematic Universe</h1>
+      <div className='order-buttons'>
+        <button onClick={() => { setOrder('ChronoDate') }} className="chrono-button">Sort by Chronological Order</button>
+        <button onClick={() => { setOrder('Released') }}>Sort by Release Date</button>
+      </div>
       <ul>
         {sortedList.map(movie => (
-          <Link to={`${movie.id}`} key={movie.id}>
-            <li>
-              <h3>{movie.Title}</h3>
+          <Link to={`${movie.id}`} key={movie.id} aria-label={movie.Title}>
+            <li className='poster'>
+              <img src={`/images/marvel/${movie.Image}`} alt={`Image of ${movie.Title}`} /><br/>
+              <h3 className='poster-title'>{movie.Title}</h3>
               <p>{new Date(movie[order]).getFullYear()}</p>
-              <img height={250} src={`/images/marvel/${movie.Image}`} alt={`Image of ${movie.Title}`} /><br/>
             </li>
           </Link>
         ))}
