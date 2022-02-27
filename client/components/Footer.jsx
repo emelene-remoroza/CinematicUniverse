@@ -4,10 +4,8 @@ function Footer () {
   return (
 
     <div>
-      <h1>
-        Footer
-      </h1>
-      <p>Developed By:Team Cinematic-View &amp; Integrated with external API--<a href="http://www.omdbapi.com/" >OMDB</a>
+      <p>
+        Developed by Team CU-View at <a href='https://devacademy.co.nz/' target='_blank' rel='noreferrer'>EDA</a> &amp; Integrated with external API--<a href="http://www.omdbapi.com/" target='_blank' rel='noreferrer'>OMDB</a>
       </p>
     </div>
 

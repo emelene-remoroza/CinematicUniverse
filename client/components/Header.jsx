@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function Header () {
-  // useEffect ((){
-  //   fetchUser(check this)
-  //   .then
-  // })
-
   const { loginWithRedirect, user, logout } = useAuth0()
 
   function handleLogOff (e) {
@@ -25,20 +20,22 @@ function Header () {
     e.preventDefault()
     loginWithRedirect()
   }
-
+  console.log(user)
   return (
     <>
-      <IfAuthenticated>
-        {user?.name}
-        {user?.email}
-        {user?.id}
-        <a href='/' onClick={handleLogOff}>Logout</a>
-      </IfAuthenticated>
-      <IfNotAuthenticated>
-        <a href='/' onClick={handleRegister}>Register</a>
-        <a href='/' onClick={handleSignIn}>Sign in</a>
-      </IfNotAuthenticated>
-      <h1>Movies</h1>
+      <div className='login-bar'>
+        <IfAuthenticated>
+          <span className=''>Hi, {user?.nickname} </span>
+          <a href='/' onClick={handleLogOff}>Logout</a>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <a href='/' onClick={handleRegister}>Register</a>
+          <a href='/' onClick={handleSignIn}>Sign in</a>
+        </IfNotAuthenticated>
+      </div>
+      <div className='logo-bar'>
+        <img src="/images/watch-verse-logo.svg" alt="watch-verse logo with movie reel icon" />
+      </div>
     </>
   )
 }

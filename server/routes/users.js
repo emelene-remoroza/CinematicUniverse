@@ -1,19 +1,22 @@
 const express = require('express')
 const db = require('../db/users')
+const checkJwt = require('../auth0.js')
 
 const router = express.Router()
 
 module.exports = router
 
 // POST /api/v1/users
-router.post('/users', async (req, res) => {
-  const newUser = req.body
-  const { auth0Id, email } = newUser
+router.post('/', checkJwt, async (req, res) => {
+  const { email } = req.body
   const user = {
-    auth0_id: auth0Id,
+    auth0_id: req.user?.sub,
     email
   }
   try {
+    const userExists = await db.userExists(req.user?.sub)
+    if (userExists) return res.sendStatus(200)
+
     await db.createUser(user)
     res.sendStatus(201)
   } catch (err) {
@@ -23,18 +26,18 @@ router.post('/users', async (req, res) => {
 })
 
 // GET /api/v1/usersId
-router.get('/user/:userId', async (req, res) => {
-  const userById = req.params.userId
-  db.getUserById(userById)
-    .then(user => {
-      res.json({ user })
-      return null
-    })
-    .catch(err => {
-      console.error(err)
-      res.sendStatus(500)
-    })
-})
+// router.get('/', checkJwt, async (req, res) => {
+
+//   db.getUserById(userById)
+//     .then(user => {
+//       res.json({ user })
+//       return null
+//     })
+//     .catch(err => {
+//       console.error(err)
+//       res.sendStatus(500)
+//     })
+// })
 
 //   try {
 //     await db.getUser(user)

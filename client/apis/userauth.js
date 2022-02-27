@@ -4,16 +4,17 @@ const rootUrl = '/api/v1'
 export async function addUser (user) {
   console.log('lala lulu ')
   return request.post(`${rootUrl}/users`)
-    .send(user)
+    .set('Authorization', `Bearer ${user.token}`)
+    .send({ email: user.email })
     .catch(logError)
 }
 
-export function fetchUser (id) {
-  return request.get(`${rootUrl}/user/${id}`)
-    .then(response => {
-      return response.body.user
-    })
-}
+// export function fetchUser (id) {
+//   return request.get(`${rootUrl}/user/${id}`)
+//     .then(response => {
+//       return response.body.user
+//     })
+// }
 
 function logError (err) {
   if (err.message === 'Forbidden') {
