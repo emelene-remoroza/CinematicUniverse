@@ -112,6 +112,22 @@ a:active {
   color: #CBC3E3;
 }
 
+/* Navigation Styling */
+nav {
+  position: absolute;
+  top: 0;
+  margin: 0.5em;
+  display: flex;
+}
+
+.back-link, .nav-link {
+  text-transform: uppercase;
+}
+
+.back-link a, .nav-link a {
+  padding: 0 0.25em;
+}
+
 /* Header Styling */
 .login-bar {
   background-color: white;

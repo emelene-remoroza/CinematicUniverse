@@ -20,7 +20,7 @@ exports.seed = function (knex) {
         { id: 16, Title: 'Black Widow', Released: '2021-07-09', ChronoDate: '2016-6-20', Image: 'black-widow-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/ybji16u608U' },
         { id: 17, Title: 'Spider-Man: Homecoming', Released: '2017-07-07', ChronoDate: '2016-01-01', Image: 'spiderman-homecoming.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/39udgGPyYMg' },
         { id: 18, Title: 'Black Panther', Released: '2018-02-16', ChronoDate: '2016-01-01', Image: 'black-panther-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/xjDjIWPwcPU' },
-        { id: 19, Title: 'Doctor Strange', Released: '2016-11-04', ChronoDate: '2016-01-01', Image: 'doctor-strange-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/aWzlQ2N6qqg' },
+        { id: 19, Title: 'Doctor Strange', Released: '2016-11-04', ChronoDate: '2016-01-01', Image: 'doctor-strange-1.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/HSzx-zryEgM' },
         { id: 20, Title: 'Thor: Ragnarok', Released: '2017-11-03', ChronoDate: '2017-01-01', Image: 'thor-ragnarok.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/ue80QwXMRHg' },
         { id: 21, Title: 'Ant-Man and the Wasp', Released: '2018-07-06', ChronoDate: '2018-01-01', Image: 'ant-man-wasp.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/8_rTIAOohas' },
         { id: 22, Title: 'Avengers: Infinity War', Released: '2018-04-27', ChronoDate: '2018-01-01', Image: 'the-avengers-infinity-war.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/6ZfuNTqbHE8' },
