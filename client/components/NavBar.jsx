@@ -8,11 +8,6 @@ export default function NavBar () {
 
   return (
     <nav>
-      <div className='back-link'>
-        {(paths.length > 2) && <NavLink to={`/${category}`}>
-          Back to {`${category[0].toUpperCase()}${category.slice(1)}`} List
-        </NavLink>}
-      </div>
       <div className='nav-link'>
         <NavLink to='/' >
           Home
@@ -20,6 +15,11 @@ export default function NavBar () {
         <NavLink to='/watchlist' >
           Watchlist
         </NavLink>
+      </div>
+      <div className='back-link'>
+        {(paths.length > 2) && <NavLink to={`/${category}`}>
+          Back to {`${category[0].toUpperCase()}${category.slice(1)}`} List
+        </NavLink>}
       </div>
     </nav>
   )
