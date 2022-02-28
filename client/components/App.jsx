@@ -31,10 +31,11 @@ function App () {
   return (
     <>
       <div>
-        <NavBar/>
+
         <header>
           <Header/>
         </header>
+        <NavBar/>
 
         <Routes>
           <Route path='/' element={<Home />} />

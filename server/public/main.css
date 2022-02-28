@@ -96,12 +96,8 @@ p, a:link {
     text-decoration: none;
 }
 
-a:link {
+a:link, a:visited  {
   color: #575757;
-}
-
-a:visited {
-    color: #575757;
 }
 
 a:hover {
@@ -120,12 +116,45 @@ nav {
   display: flex;
 }
 
+@media screen and (max-width: 505px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    background-color: black;
+    margin: 0;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  nav a:link, nav a:visited {
+    color: white;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  nav a:hover {
+    color: #5D3FD3;
+  }
+}
+
 .back-link, .nav-link {
   text-transform: uppercase;
 }
 
 .back-link a, .nav-link a {
   padding: 0 0.25em;
+}
+
+@media screen and (max-width: 480px) {
+  .back-link a, .nav-link a {
+    font-size: 0.8rem;
+    padding-right: 0.5em;
+    display: inline-block;
+  }
 }
 
 /* Header Styling */
@@ -211,16 +240,16 @@ nav {
 }
 
 .poster-title {
-    position: absolute;
-    margin: auto;
-    top: 30%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s, visibility .2s;
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
 }
   
 .poster:hover .poster-title {
@@ -445,15 +474,16 @@ nav {
   margin-top: 0.5rem;
 	text-decoration: none;
 }
+
 .watch-list-button:hover {
 	background: linear-gradient(to bottom, #CBC3E3 5%, #5D3FD3 100%);
 	background-color: #5D3FD3;
 }
+
 .watch-list-button:active {
 	position: relative;
 	top: 1px;
 }
-
 
 /* Footer styling */
 
