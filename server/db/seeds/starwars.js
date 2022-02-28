@@ -20,7 +20,7 @@ exports.seed = function (knex) {
         { id: 16, Title: 'Star Wars: Episode VII - The Force Awakens', Released: '2015-12-18', ChronoDate: '3016-01-01', Period: '34 ABY', Image: 'starwars-ep7.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/sGbxmsDFVnE' },
         { id: 17, Title: 'Star Wars: Episode VIII - The Last Jedi', Released: '2017-12-15', ChronoDate: '3017-01-01', Period:'34 ABY', Image: 'starwars-ep8.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/Q0CbN8sfihY' },
         { id: 18, Title: 'Star Wars: Episode IX - The Rise of Skywalker', Released: '2019-12-20', ChronoDate: '3018-01-01', Period: '35 ABY', Image: 'starwars-ep9.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/8Qn_spdM5Zg' },
-        { id: 19, Title: 'Star Wars: Visions', Released: '2021-09-22', ChronoDate: '3019-01-01', Period: 'Multiple period BBY-ABY', Image: 'starwars-visions.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/jtAsl-0o3O0' }
+        { id: 19, Title: 'Star Wars: Visions', Released: '2021-09-22', ChronoDate: '3019-01-01', Period: 'BBY-ABY', Image: 'starwars-visions.jpg', Trailer: 'https://www.youtube-nocookie.com/embed/jtAsl-0o3O0' }
       ])
     })
 }
