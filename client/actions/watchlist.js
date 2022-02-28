@@ -16,7 +16,6 @@ export function addToWatchlist (id) {
     return addToWatchlistApi(id)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
-        console.log('watchlist', watchlist)
         return null
       })
   }

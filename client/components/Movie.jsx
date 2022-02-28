@@ -17,7 +17,6 @@ export default function Movie (props) {
   const year = releaseDate.getFullYear()
 
   function onClickHandler () {
-    console.log(id)
     dispatch(addToWatchlist(id))
   }
 
@@ -58,7 +57,6 @@ export default function Movie (props) {
           <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
           <p>{movieDetail?.Runtime}</p>
 
-          {/* Watchlist button added but still needs click handler */}
           <button className='watch-list-button' onClick={ onClickHandler }>Add to WatchList</button>
 
           <div>{ratings}</div>

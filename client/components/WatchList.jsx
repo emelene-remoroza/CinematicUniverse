@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-// import { getWatchlist } from '../apis/watchlist'
 
 export default function WatchList (props) {
   const list = useSelector(state => state.watchlist)
@@ -10,6 +9,7 @@ export default function WatchList (props) {
     setnewlist(list)
   },
   [list])
+
   const listResults = newlist.map((results) => {
     return marvel.map((marvelResults) => {
       if (marvelResults.id === results.marvel_id) {
