@@ -12,6 +12,7 @@ import Movie from './Movie'
 import MarvelList from './MarvelList'
 import Footer from './Footer'
 import Home from './Home'
+import NavBar from './NavBar'
 
 function App () {
   cacheUser(useAuth0)
@@ -27,6 +28,7 @@ function App () {
         <header>
           <Header/>
         </header>
+        <NavBar/>
 
         <Routes>
           <Route path='/' element={<Home />} />
