@@ -43,7 +43,7 @@ export default function Movie (props) {
           </iframe>
         </div>
 
-        <img src={`/images/marvel/${movie?.Image}`}/>
+        <img src={`/images/${props.category}/${movie?.Image}`}/>
         <div className='movie-details'>
           {movie && <h2>{title}</h2>}
           <h3>{movieDetail?.Year}</h3>
