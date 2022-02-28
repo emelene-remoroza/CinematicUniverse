@@ -16,6 +16,19 @@
   background-position-x: center;
   background-color: #b20000;
 }
+
+.starwars-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/starwars/starwars-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: #2f3050;
+  color: white
+}
+
 /* This class will automatically be added just use the param name for the franchise i.e. .starwars-movie */
 .marvel-movie {
   display: flex;
@@ -27,6 +40,18 @@
   background-position-x: center;
   background-color: white;
 }
+
+.starwars-movie {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/starwars/starwars-movie-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: white;
+}
+
 /* ^^ADD NEW BACKGROUNDS WHEN ADDING A NEW FANCHISE^^*/
 
 /* Responsive font sizes */
@@ -195,10 +220,21 @@ a:active {
   width: 100%;
   color: white;
   text-align: center;
+  font-weight: bold;
+}
+
+.order-buttons .disabled {
+  color: darkgray
 }
 
 .chrono-button {
   border-right: 1px solid white !important
+}
+
+.chrono-info p {
+  font-size: 0.75rem;
+  display: inline;
+  margin: 0.5rem;
 }
 
 @media screen and (max-width: 480px) {
