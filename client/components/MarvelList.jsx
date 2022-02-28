@@ -15,8 +15,8 @@ function MarvelList () {
       <img src='/images/marvel/marvel.svg' alt='marvel-logo' className='list-logo'/>
       <h1>Marvel Cinematic Universe</h1>
       <div className='order-buttons'>
-        <button onClick={() => { setOrder('ChronoDate') }} className="chrono-button">Sort by Chronological Order</button>
-        <button onClick={() => { setOrder('Released') }}>Sort by Release Date</button>
+        <button onClick={() => { setOrder('ChronoDate') }} className={`${order === 'ChronoDate' ? 'disabled' : ''} chrono-button`}>Sort by Chronological Order</button>
+        <button onClick={() => { setOrder('Released') }} className={`${order === 'Released' ? 'disabled' : ''}`}>Sort by Release Date</button>
       </div>
       <ul>
         {sortedList.map(movie => (
