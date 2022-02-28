@@ -10,7 +10,7 @@ export default function NavBar () {
     <nav>
       <div className='back-link'>
         {(paths.length > 2) && <NavLink to={`/${category}`}>
-          Back to {category} List
+          Back to {`${category[0].toUpperCase()}${category.slice(1)}`} List
         </NavLink>}
       </div>
       <div className='nav-link'>
