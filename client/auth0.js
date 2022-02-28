@@ -1,4 +1,4 @@
-import { setUser } from './actions/userauth'
+import { handleLogin } from './actions/userauth'
 import store from './store'
 
 export async function cacheUser (useAuth0, state) {
@@ -12,7 +12,7 @@ export async function cacheUser (useAuth0, state) {
         email: user.email,
         token: token
       }
-      store.dispatch(setUser(userToSave))
+      store.dispatch(handleLogin(userToSave))
     } catch (err) {
       console.error(err)
     }

@@ -3,7 +3,8 @@ const rootUrl = '/api/v1'
 
 export async function addUser (user) {
   return request.post(`${rootUrl}/users`)
-    .send(user)
+    .set('Authorization', `Bearer ${user.token}`)
+    .send({ email: user.email })
     .catch(logError)
 }
 
