@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function Header () {
-  const { loginWithRedirect, logout } = useAuth0()
+  const { loginWithRedirect, user, logout } = useAuth0()
 
   function handleLogOff (e) {
     e.preventDefault()
@@ -25,6 +25,7 @@ function Header () {
     <>
       <div className='login-bar'>
         <IfAuthenticated>
+          <span className=''>Hi, {user?.nickname} </span>
           <a href='/' onClick={handleLogOff}>Logout</a>
         </IfAuthenticated>
         <IfNotAuthenticated>
