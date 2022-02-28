@@ -5,7 +5,7 @@ import { cacheUser } from '../auth0'
 
 import { Routes, Route } from 'react-router-dom'
 
-import { fetchMarvel } from '../actions'
+import { fetchMarvel, fetchWatchlist } from '../actions'
 
 import Header from './Header'
 import Movie from './Movie'
@@ -20,6 +20,9 @@ function App () {
 
   useEffect(() => {
     dispatch(fetchMarvel())
+  }, [])
+  useEffect(() => {
+    dispatch(fetchWatchlist())
   }, [])
 
   return (

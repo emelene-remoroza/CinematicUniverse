@@ -3,13 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { getWatchlist } from '../apis/watchlist'
 
 export default function WatchList (props) {
-  const list = useSelector(state => state.list)
+  const list = useSelector(state => state.watchlist)
+  console.log('list', list)
   const dispatch = useDispatch()
   const [newlist, setnewlist] = useState(list)
   useEffect(() => {
     setnewlist(list)
   },
   [list])
+
+  //
 
   return (
     <div>

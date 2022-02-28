@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { fetchMovie } from '../apis/movie'
-import { addToWatchlist } from '../apis/watchlist.js'
+import { addToWatchlist } from '../actions/index'
 
 export default function Movie (props) {
+  const dispatch = useDispatch()
   const id = Number(useParams().id)
   const movieArr = useSelector(state => state[props.category])
   const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
@@ -16,13 +17,8 @@ export default function Movie (props) {
   const year = releaseDate.getFullYear()
 
   function onClickHandler () {
-    addToWatchlist(id)
-      .then(() => {
-        console.log('added')
-        //  redirect('/watchlist')
-        return null
-      })
-      .catch(e => console.log(e))
+    console.log(id)
+    dispatch(addToWatchlist(id))
   }
 
   useEffect(() => {

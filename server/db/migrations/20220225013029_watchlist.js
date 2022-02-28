@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('watchList', table => {
-    table.integer('user_id').references('users')
-    table.integer('marvel_id').references('Marvel')
+    table.string('auth0_id').references('users.auth0_id')
+    table.integer('marvel_id').references('Marvel.id')
     table.boolean('status')
   })
 }

@@ -11,13 +11,13 @@ function getWatchlist (id, db = connection) {
   return db('watchList')
     // .join('users', 'users.id', 'watchList.user_id')
     .select()
-    .where('user_id', id)
+    .where('auth0_id', id)
 }
 
 function addMovie (id, marvelId, db = connection) {
   return db('watchList')
-    .insert({ marvel_id: marvelId, user_id: id })
-    .then(id => {
+    .insert({ marvel_id: marvelId, auth0_id: id })
+    .then(() => {
       return getWatchlist(id)
     })
 }
