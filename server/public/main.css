@@ -16,6 +16,19 @@
   background-position-x: center;
   background-color: #b20000;
 }
+
+.starwars-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/starwars/starwars-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: #2f3050;
+  color: white
+}
+
 /* This class will automatically be added just use the param name for the franchise i.e. .starwars-movie */
 .marvel-movie {
   display: flex;
@@ -27,6 +40,18 @@
   background-position-x: center;
   background-color: white;
 }
+
+.starwars-movie {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  background-image: url('/images/starwars/starwars-movie-bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  background-color: white;
+}
+
 /* ^^ADD NEW BACKGROUNDS WHEN ADDING A NEW FANCHISE^^*/
 
 /* Responsive font sizes */
@@ -71,12 +96,8 @@ p, a:link {
     text-decoration: none;
 }
 
-a:link {
+a:link, a:visited  {
   color: #575757;
-}
-
-a:visited {
-    color: #575757;
 }
 
 a:hover {
@@ -85,6 +106,55 @@ a:hover {
 
 a:active {
   color: #CBC3E3;
+}
+
+/* Navigation Styling */
+nav {
+  position: absolute;
+  top: 0;
+  margin: 0.5em;
+  display: flex;
+}
+
+@media screen and (max-width: 505px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    background-color: black;
+    margin: 0;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  nav a:link, nav a:visited {
+    color: white;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  nav a:hover {
+    color: #5D3FD3;
+  }
+}
+
+.back-link, .nav-link {
+  text-transform: uppercase;
+}
+
+.back-link a, .nav-link a {
+  padding: 0 0.25em;
+}
+
+@media screen and (max-width: 480px) {
+  .back-link a, .nav-link a {
+    font-size: 0.8rem;
+    padding-right: 0.5em;
+    display: inline-block;
+  }
 }
 
 /* Header Styling */
@@ -170,16 +240,16 @@ a:active {
 }
 
 .poster-title {
-    position: absolute;
-    margin: auto;
-    top: 30%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s, visibility .2s;
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
 }
   
 .poster:hover .poster-title {
@@ -195,10 +265,21 @@ a:active {
   width: 100%;
   color: white;
   text-align: center;
+  font-weight: bold;
+}
+
+.order-buttons .disabled {
+  color: darkgray
 }
 
 .chrono-button {
   border-right: 1px solid white !important
+}
+
+.chrono-info p {
+  font-size: 0.75rem;
+  display: inline;
+  margin: 0.5rem;
 }
 
 @media screen and (max-width: 480px) {
@@ -393,15 +474,16 @@ a:active {
   margin-top: 0.5rem;
 	text-decoration: none;
 }
+
 .watch-list-button:hover {
 	background: linear-gradient(to bottom, #CBC3E3 5%, #5D3FD3 100%);
 	background-color: #5D3FD3;
 }
+
 .watch-list-button:active {
 	position: relative;
 	top: 1px;
 }
-
 
 /* Footer styling */
 
