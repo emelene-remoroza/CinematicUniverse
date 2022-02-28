@@ -8,8 +8,11 @@ import App from './components/App'
 import { BrowserRouter } from 'react-router-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
+  // TODO: By convention this is imported as
+  //    import * as ReactDOM from 'react-dom'
+  // and called as:
+  //    ReactDOM.render(...)
   render(
-
     <Auth0Provider
       domain={'dev-o4s-crt6.au.auth0.com'}
       clientId={'QxoQxN6xPc8nNYI5feTjbJugEvA81tX0'}

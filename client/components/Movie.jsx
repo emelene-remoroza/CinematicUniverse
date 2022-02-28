@@ -7,7 +7,14 @@ import { fetchMovie } from '../apis/movie'
 export default function Movie (props) {
   const id = Number(useParams().id)
   const movieArr = useSelector(state => state[props.category])
+  /* TODO: find may return null, are we ready for that? is there a way to represent the state
+   * such that this cannot happen? */
+  /* TODO: you have movieArr from useSelector, can you derive movie from that instead? */
   const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
+  /* TODO: The component will initally render an empty div as the ratings view,
+   * but "we have no ratings" and "waiting for ratings to load" are different states,
+   * we should represent them differently so we can show them as different to the user
+   */
   const [movieDetail, setMovieDetail] = useState({ Ratings: [] })
 
   const title = movie?.Title
@@ -46,7 +53,7 @@ export default function Movie (props) {
         <img src={`/images/marvel/${movie?.Image}`}/>
         <div className='movie-details'>
           {movie && <h2>{title}</h2>}
-          <h3>{movieDetail?.Year}</h3>
+          <h3>{movieDetail?.Year}</h3> { /* TODO: do we want to render an empty heading when this is null? */}
           <h4>{movieDetail?.Rated}</h4>
           <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
           <p>{movieDetail?.Runtime}</p>
@@ -57,6 +64,12 @@ export default function Movie (props) {
           <div>{ratings}</div>
         </div>
         <div className='arrow-buttons'>
+          {/* TODO: this bakes in the assumption that the ids are a meaninful order and that they start at 1
+            * properties like that shouldn't reach the frontend. Instead the backend should expose information about
+            * what the previous/next item in a sequence is, one way of doing that is with relations as in JSON API
+            *
+            * https://jsonapi.org/format/#document-resource-object-related-resource-links
+            * */}
           {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button className='previous'>&#8249;</button></Link>}
           {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button className='next'>&#8250;</button></Link>}
         </div>

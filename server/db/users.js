@@ -9,6 +9,7 @@ module.exports = {
 
 function userExists (auth0Id, db = connection) {
   return db('users')
+  // TODO: I wonder if we could use .first here instead of .count
     .count('id as n')
     .where('auth0_id', auth0Id)
     .then(count => {
@@ -24,7 +25,7 @@ function getUserByName (username, db = connection) {
 }
 
 function createUser (user, db = connection) {
-  console.log('hello its summer')
+  console.log('hello its summer') // TODO: Hi, Summer!
   return db('users')
     .insert(user)
 }

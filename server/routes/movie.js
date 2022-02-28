@@ -8,6 +8,7 @@ router.get('/:title/:year', (req, res) => {
   const title = req.params.title
   const year = req.params.year
   const apiKey = process.env.OMDB_API_KEY
+
   return request.get(`http://www.omdbapi.com/?apikey=${apiKey}&t=${title}&y=${year}&plot=full`)
     .then(response => {
       return res.json(response.body)
