@@ -5,8 +5,6 @@ export default function WatchList (props) {
   const list = useSelector(state => state.watchlist)
   const marvel = useSelector(state => state.marvel)
   const starwars = useSelector(state => state.starwars)
-  console.log('starwars', starwars)
-  console.log('marvel', marvel)
   const [newlist, setnewlist] = useState(list)
   useEffect(() => {
     setnewlist(list)

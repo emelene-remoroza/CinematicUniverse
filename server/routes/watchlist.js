@@ -7,7 +7,6 @@ const router = express.Router()
 module.exports = router
 
 router.get('/', checkJwt, (req, res) => {
-  console.log(req.user)
   const id = 'auth0|567'
   db.getWatchlist(id)
     .then(results => {

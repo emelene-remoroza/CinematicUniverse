@@ -42,7 +42,6 @@ export function updateWatchlist (watchlist) {
 export function fetchWatchlist () {
   return (dispatch, getState) => {
     const { user } = getState()
-    console.log(user)
     const token = user?.token
     return getWatchlist(token)
       .then((watchlist) => {
