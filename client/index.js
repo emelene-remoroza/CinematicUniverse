@@ -1,5 +1,6 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+// import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Auth0Provider } from '@auth0/auth0-react'
 
@@ -8,7 +9,7 @@ import App from './components/App'
 import { BrowserRouter } from 'react-router-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(
+  ReactDOM.render(
 
     <Auth0Provider
       domain={'dev-o4s-crt6.au.auth0.com'}

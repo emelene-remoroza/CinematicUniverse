@@ -2,16 +2,27 @@ import request from 'superagent'
 
 const watchlistUrl = '/api/v1/watchlist'
 
-export function getWatchlist () {
+export function getWatchlist (token) {
   return request.get(`${watchlistUrl}`)
+    .set('authorization', `Bearer ${token}`)
     .then(res => {
       return res.body
     })
 }
 
-export function addToWatchlistApi (marvelId) {
-  return request.post(`${watchlistUrl}`)
+export function addToWatchlistMarvel (marvelId, token) {
+  return request.post(`${watchlistUrl}/marvel`)
+    .set('authorization', `Bearer ${token}`)
     .send({ marvelId })
+    .then(res => {
+      return res.body
+    })
+}
+
+export function addToWatchlistStarwars (starwarsId, token) {
+  return request.post(`${watchlistUrl}/starwars`)
+    .set('authorization', `Bearer ${token}`)
+    .send({ starwarsId })
     .then(res => {
       return res.body
     })

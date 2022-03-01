@@ -129,6 +129,20 @@ nav {
   }
 }
 
+a.active:link, a.active:visited {
+  color: black;
+}
+
+a.active:hover {
+  color: #5D3FD3;
+}
+
+@media screen and (max-width: 505px) {
+  a.active:link, a.active:visited {
+    color: #CBC3E3;
+  }
+}
+
 @media screen and (max-width: 505px) {
   nav a:link, nav a:visited {
     color: white;
@@ -158,6 +172,10 @@ nav {
 }
 
 /* Header Styling */
+header {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
 .login-bar {
   background-color: white;
   text-align: right;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { fetchMovie } from '../apis/movie'
-import { addToWatchlist } from '../actions/index'
+import { addToWatchlistM, addToWatchlistS } from '../actions/index'
 
 export default function Movie (props) {
   const dispatch = useDispatch()
@@ -17,7 +17,9 @@ export default function Movie (props) {
   const year = releaseDate.getFullYear()
 
   function onClickHandler () {
-    dispatch(addToWatchlist(id))
+    movie.Period
+      ? dispatch(addToWatchlistS(id))
+      : dispatch(addToWatchlistM(id))
   }
 
   useEffect(() => {

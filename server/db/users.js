@@ -24,7 +24,6 @@ function getUserByName (username, db = connection) {
 }
 
 function createUser (user, db = connection) {
-  console.log('hello its summer')
   return db('users')
     .insert(user)
 }
