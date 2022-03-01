@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 import { cacheUser } from '../auth0'
 
@@ -20,13 +20,15 @@ import NavBar from './NavBar'
 function App () {
   cacheUser(useAuth0)
   const dispatch = useDispatch()
-
+  const token = useSelector(state => state.user.token)
   useEffect(() => {
     dispatch(fetchMarvel())
   }, [])
   useEffect(() => {
-    dispatch(fetchWatchlist())
-  }, [])
+    if (token) {
+      dispatch(fetchWatchlist())
+    }
+  }, [token])
 
   useEffect(() => {
     dispatch(fetchStarWars())
@@ -44,7 +46,7 @@ function App () {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/marvel' element={<MarvelList />} />
-          <Route path='/watchlist/:id' element={<WatchList />} />
+          <Route path='/watchlist' element={<WatchList />} />
           <Route path='/marvel/:id' element={<Movie category="marvel"/>} />
           <Route path='/starwars' element={<StarWarsList />} />
           <Route path='/starwars/:id' element={<Movie category="starwars"/>} />

@@ -12,8 +12,9 @@ export function setWatchlist (watchlist) {
 }
 
 export function addToWatchlistM (id) {
-  return (dispatch) => {
-    return addToWatchlistMarvel(id)
+  return (dispatch, getState) => {
+    const token = getState().user.token
+    return addToWatchlistMarvel(id, token)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
         return null
@@ -22,8 +23,9 @@ export function addToWatchlistM (id) {
 }
 
 export function addToWatchlistS (id) {
-  return (dispatch) => {
-    return addToWatchlistStarwars(id)
+  return (dispatch, getState) => {
+    const token = getState().user.token
+    return addToWatchlistStarwars(id, token)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
         return null
@@ -38,9 +40,11 @@ export function updateWatchlist (watchlist) {
 }
 
 export function fetchWatchlist () {
-  const id = 'auth0|567'
-  return dispatch => {
-    return getWatchlist(id)
+  return (dispatch, getState) => {
+    const { user } = getState()
+    console.log(user)
+    const token = user?.token
+    return getWatchlist(token)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
         return null
