@@ -1,13 +1,11 @@
 import { cacheUser } from './auth0'
-import { useSelector, useDispatch } from 'react-redux'
 import { handleLogin } from './actions/userauth'
-import { waitFor } from '@testing-library/react'
-jest.mock('react-redux')
+jest.mock('./store', () => ({
+  dispatch: jest.fn(),
+  getState: jest.fn(),
+  subscribe: jest.fn()
+}))
 jest.mock('./actions/userauth')
-
-const dispatch = jest.fn()
-useDispatch.mockReturnValue(dispatch)
-useSelector.mockReturnValue({ token: '' })
 
 const user = {
   name: 'Donald Duck',
@@ -31,6 +29,7 @@ describe('cacheUser', () => {
     jest.clearAllMocks()
   })
   it('if user is authenticated and does not have token, handleLogin called', async () => {
+    expect.assertions(2)
     await cacheUser(useAuth0)
     expect(handleLogin).toHaveBeenCalled()
     const user = handleLogin.mock.calls[0][0]
