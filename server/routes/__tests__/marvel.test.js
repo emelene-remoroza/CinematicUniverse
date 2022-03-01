@@ -39,7 +39,6 @@ it('responds with 500 if error', () => {
     .get('/api/v1/marvel')
     .then((res) => {
       expect(res.status).toEqual(500)
-      // expect(res.text).toContain('Somthing went wrong')
       return null
     })
 })
