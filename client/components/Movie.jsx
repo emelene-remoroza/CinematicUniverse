@@ -11,6 +11,7 @@ export default function Movie (props) {
   const movieArr = useSelector(state => state[props.category])
   const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
   const [movieDetail, setMovieDetail] = useState({ Ratings: [] })
+  const [addToWatch, setAddToWatch] = useState(false)
 
   const title = movie?.Title
   const releaseDate = new Date(movie?.Released)
@@ -20,12 +21,14 @@ export default function Movie (props) {
     movie.Period
       ? dispatch(addToWatchlistS(id))
       : dispatch(addToWatchlistM(id))
+    setAddToWatch(true)
   }
 
   useEffect(() => {
     fetchMovie(title, year)
       .then(res => {
         res.Ratings && setMovieDetail(res)
+        setAddToWatch(false)
         return null
       })
       .catch((err) => {
@@ -59,7 +62,7 @@ export default function Movie (props) {
           <p><strong>Plot:</strong> {movieDetail?.Plot}</p>
           <p>{movieDetail?.Runtime}</p>
 
-          <button className='watch-list-button' onClick={ onClickHandler }>Add to WatchList</button>
+          <button className='watch-list-button' onClick={ onClickHandler }>{addToWatch ? 'Added' : 'Add to WatchList'}</button>
 
           <div>{ratings}</div>
         </div>

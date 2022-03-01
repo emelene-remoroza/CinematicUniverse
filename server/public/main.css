@@ -506,8 +506,6 @@ header {
 /* Watchlist styling */
 .watchlist {
   position: relative;
-  /* margin: 0 auto;
-  max-width: 800px; */
 }
 
 .watchlist h2 {
@@ -528,6 +526,7 @@ header {
 
 .watch-movie p {
   text-align: center;
+  padding: 0.5em;
 }
 
 .watch-movie img {
