@@ -33,3 +33,14 @@ describe('GET /api/v1/starwars', () => {
   //     })
   })
 })
+// it('responds with 500 if error', () => {
+//   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+//   return request(server)
+//     .get('/api/v1/starwars')
+//     .then((res) => {
+//       expect(res.status).toEqual(500)
+//       // expect(res.text).toContain('Somthing went wrong')
+//       return null
+//     })
+// })
+// })
