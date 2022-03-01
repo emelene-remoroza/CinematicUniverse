@@ -506,11 +506,58 @@ header {
 /* Watchlist styling */
 .watchlist {
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto;
+  max-width: 800px; */
 }
 
-.watchlist img {
-  height: 50px;
+.watchlist h2 {
+  text-align: center;
+}
+
+.watchlist ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.watch-movie {
+  position: relative;
+  width: 169px;
+  margin: 1rem 0.5rem;
+}
+
+.watch-movie p {
+  text-align: center;
+}
+
+.watch-movie img {
+  height: 250px;
+}
+
+.watch-movie:hover img {
+  filter: brightness(40%);
+}
+
+.watchlist li {
+  list-style: none;
+}
+
+.watch-movie-title {
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+  
+.watch-movie:hover .watch-movie-title {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Footer styling */
