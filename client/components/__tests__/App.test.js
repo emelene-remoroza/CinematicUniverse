@@ -1,32 +1,37 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import { screen, render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { Routes, BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createMemoryHistory } from 'history'
 
 import App from '../App'
-import store from '../../store'
-import { fetchFruits } from '../../actions'
+import Header from '../Header'
+import NavBar from '../NavBar'
+import Footer from '../Footer'
+// import { fetchMarvel, fetchWatchlist, fetchStarWars } from '../../actions'
 
-jest.mock('../actions')
+jest.mock('../../auth0')
+jest.mock('../Header')
+jest.mock('../Footer')
+jest.mock('../NavBar')
+jest.mock('../../actions')
 
-fetchFruits.mockImplementation(() => () => {})
+Header.mockImplementation(() => <div>Header</div>)
+Footer.mockImplementation(() => <div>Footer</div>)
+NavBar.mockImplementation(() => <div>NavBar</div>)
 
-test('page header includes fruit', () => {
-  render(<Provider store={store}><App /></Provider>)
-  const heading = screen.getByRole('heading')
-  expect(heading.innerHTML).toMatch(/Fruit/)
-})
+describe('<App />', () => {
+  const fakeStore = {
+    subscribe: jest.fn(),
+    dispatch: jest.fn(),
+    getState: jest.fn()
+  }
 
-test('renders an <li> for each fruit', () => {
-  const fruits = ['orange', 'persimmons', 'kiwi fruit']
-  jest.spyOn(store, 'getState')
-  store.getState.mockImplementation(() => ({ fruits }))
-
-  render(<Provider store={store}><App /></Provider>)
-  const li = screen.getAllByRole('listitem')
-  expect(li).toHaveLength(3)
-})
-
-test('dispatches fetchFruits action', () => {
-  render(<Provider store={store}><App /></Provider>)
-  expect(fetchFruits).toHaveBeenCalled()
+  it('shows a Header', () => {
+    const history = createMemoryHistory()
+    history.push('/')
+    render(<Provider store={fakeStore}><BrowserRouter history={history}><App /></BrowserRouter></Provider>)
+    // expect(screen.getByRole('heading')).toHaveTextContent('Header')
+  })
 })
