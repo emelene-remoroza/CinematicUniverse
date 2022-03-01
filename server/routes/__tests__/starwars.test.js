@@ -5,7 +5,6 @@ const { getStarWars } = require('../../db/starwars')
 const db = require('../../db/starwars')
 
 jest.mock('../../db/starwars')
-jest.mock(getStarWars)
 
 describe('GET /api/v1/starwars', () => {
   it('respond with array of starwars movies and series', () => {
@@ -23,7 +22,7 @@ describe('GET /api/v1/starwars', () => {
         return null
       })
   })
-  it.todo('responds with 500 and error on rejection', () => {
+  it.skip('responds with 500 and error on rejection', () => {
     db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
     return request(server)
       .get('/api/v1/starwars')
@@ -34,7 +33,7 @@ describe('GET /api/v1/starwars', () => {
       })
   })
 })
-it.todo('responds with 500 if error', () => {
+it.skip('responds with 500 if error', () => {
   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
   return request(server)
     .get('/api/v1/starwars')

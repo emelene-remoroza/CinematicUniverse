@@ -1,9 +1,9 @@
-import { fetchStarWars } from '../starwars'
+import { fetchMarvel } from '../marvel'
 
-import { getStarWars } from '../../apis/starwars'
+import { getMarvel } from '../../apis/marvel'
 
-jest.mock('../../apis/starwars')
-const fakeStarWars = [
+jest.mock('../../apis/marvel')
+const fakeMarvel = [
   {
     id: '1',
     Title: 'Fake Title1',
@@ -24,7 +24,7 @@ const fakeStarWars = [
   }
 ]
 
-getStarWars.mockReturnValue(Promise.resolve(fakeStarWars))
+getMarvel.mockReturnValue(Promise.resolve(fakeStarWars))
 
 describe('fetchStarWars', () => {
   it('gets list of starwars movies and tv shows by chronological and released dates', () => {
@@ -33,7 +33,12 @@ describe('fetchStarWars', () => {
       .then(() => {
         expect(dispatch).toHaveBeenCalled()
         expect(dispatch.mock.calls[0][0].type).toEqual('SET_STARWARS')
+        console.log('1', dispatch.mock.calls[0][0])
+        expect(dispatch.mock.calls[0][0].starwars).toEqual(fakeStarWars)
         return null
       })
   })
 })
+
+// receiving undefined
+// npm error message
