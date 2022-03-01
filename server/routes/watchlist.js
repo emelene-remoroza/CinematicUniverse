@@ -34,3 +34,23 @@ router.post('/starwars', checkJwt, (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
+router.delete('/marvel', checkJwt, (req, res) => {
+  const { marvelId } = req.body
+  const auth0Id = req.user?.sub
+  db.removeMarvel(auth0Id, marvelId)
+    .then((results) => {
+      return res.json(results)
+    })
+    .catch(e => console.log(e))
+})
+
+router.delete('/starwars', checkJwt, (req, res) => {
+  const { starwarsId } = req.body
+  const auth0Id = req.user?.sub
+  db.removeStarwars(auth0Id, starwarsId)
+    .then((results) => {
+      return res.json(results)
+    })
+    .catch(e => console.log(e))
+})

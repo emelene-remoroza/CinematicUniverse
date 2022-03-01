@@ -544,8 +544,8 @@ header {
 
 .watch-movie-title {
   position: absolute;
-  margin: auto;
-  top: 30%;
+  margin-top: 40%;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -553,6 +553,7 @@ header {
   visibility: hidden;
   opacity: 0;
   transition: opacity .2s, visibility .2s;
+  height:min-content;
 }
   
 .watch-movie:hover .watch-movie-title {
