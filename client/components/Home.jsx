@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Home () {
   return (
     <div className='home-container'>
+      <img src='/images/home-page.jpg' alt='movie theatre with purple screen'/>
       <p>
         Welcome to Watch-Verse - your Cinematic Universe Viewing Guide. Select a universe below for viewing lists.
       </p>
