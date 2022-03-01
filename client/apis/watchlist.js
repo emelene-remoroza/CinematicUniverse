@@ -27,3 +27,21 @@ export function addToWatchlistStarwars (starwarsId, token) {
       return res.body
     })
 }
+
+export function removeMarvelWatchList (marvelId, token) {
+  return request.delete(`${watchlistUrl}/marvel`)
+    .set('authorization', `Bearer ${token}`)
+    .send({ marvelId })
+    .then(res => {
+      return res.body
+    })
+}
+
+export function removeStarwarsWatchList (starwarsId, token) {
+  return request.del(`${watchlistUrl}/starwars`)
+    .set('authorization', `Bearer ${token}`)
+    .send({ starwarsId })
+    .then(res => {
+      return res.body
+    })
+}
