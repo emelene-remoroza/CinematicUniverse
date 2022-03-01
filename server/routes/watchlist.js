@@ -7,7 +7,7 @@ const router = express.Router()
 module.exports = router
 
 router.get('/', checkJwt, (req, res) => {
-  const id = 'auth0|567'
+  const id = req.user?.sub
   db.getWatchlist(id)
     .then(results => {
       return res.json(results)
@@ -17,7 +17,7 @@ router.get('/', checkJwt, (req, res) => {
 
 router.post('/marvel', checkJwt, (req, res) => {
   const { marvelId } = req.body
-  const id = 'auth0|567'
+  const id = req.user?.sub
   db.addMarvel(id, marvelId)
     .then(results => {
       return res.json(results)
@@ -27,7 +27,7 @@ router.post('/marvel', checkJwt, (req, res) => {
 
 router.post('/starwars', checkJwt, (req, res) => {
   const { starwarsId } = req.body
-  const id = 'auth0|567'
+  const id = req.user?.sub
   db.addStarwars(id, starwarsId)
     .then(results => {
       return res.json(results)

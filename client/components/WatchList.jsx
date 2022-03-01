@@ -14,26 +14,40 @@ export default function WatchList (props) {
   const listMarvel = newlist.map((results) => {
     return marvel.map((marvelResults) => {
       if (marvelResults.id === results.marvel_id) {
-        return <li key={marvelResults.id}>{marvelResults.Title}</li>
+        return <li className='watch-movie-wrapper' key={marvelResults.id} aria-label={marvelResults.Title}>
+          <div className='watch-movie'>
+            <img src={`/images/marvel/${marvelResults.Image}`}/>
+            <p className='watch-movie-title'>{marvelResults.Title}</p>
+          </div>
+          <button className='watched-button' >Watched</button>
+        </li>
       }
     })
   })
   const listStarwars = newlist.map((results) => {
     return starwars.map((starwarsResults) => {
       if (starwarsResults.id === results.starwars_id) {
-        return <li key={starwarsResults.id}>{starwarsResults.Title}</li>
+        return <li className='watch-movie-wrapper' key={starwarsResults.id} aria-label={starwarsResults.Title}>
+          <div className='watch-movie'>
+            <img src={`/images/starwars/${starwarsResults.Image}`}/>
+            <p className='watch-movie-title'>{starwarsResults.Title}</p>
+          </div>
+          <button className='watched-button' >Watched</button>
+        </li>
       }
     })
   })
 
   return (
-    <div>
-      <h1>Watch List</h1>
+    <div className='watchlist'>
+      <h1>My Watch List</h1>
+      <h2>Marvel Movies to Watch</h2>
       <ul>
-        Marvel List{listMarvel}
-      </ul><br/>
+        {listMarvel}
+      </ul>
+      <h2>Starwars Movies to Watch</h2>
       <ul>
-        Starwars List{listStarwars}
+        {listStarwars}
       </ul>
     </div>
   )
