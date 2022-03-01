@@ -5,6 +5,7 @@ const { getStarWars } = require('../../db/starwars')
 const db = require('../../db/starwars')
 
 jest.mock('../../db/starwars')
+jest.mock(getStarWars)
 
 describe('GET /api/v1/starwars', () => {
   it('respond with array of starwars movies and series', () => {
@@ -21,26 +22,25 @@ describe('GET /api/v1/starwars', () => {
         expect(res.body.starwars[1].Period).toBe('22 BBY')
         return null
       })
-  // })
-  // it('responds with 500 and error on rejection', () => {
-  //   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
-  //   return request(server)
-  //     .get('/api/v1/starwars')
-  //     .expect(500)
-  //     .then((err) => {
-  //       expect(err.text).toBe(/Somthing went wrong/)
-  //       return null
-  //     })
+  })
+  it.todo('responds with 500 and error on rejection', () => {
+    db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+    return request(server)
+      .get('/api/v1/starwars')
+      .expect(500)
+      .then((err) => {
+        expect(err.text).toBe(/Somthing went wrong/)
+        return null
+      })
   })
 })
-// it('responds with 500 if error', () => {
-//   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
-//   return request(server)
-//     .get('/api/v1/starwars')
-//     .then((res) => {
-//       expect(res.status).toEqual(500)
-//       // expect(res.text).toContain('Somthing went wrong')
-//       return null
-//     })
-// })
-// })
+it.todo('responds with 500 if error', () => {
+  db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+  return request(server)
+    .get('/api/v1/starwars')
+    .then((res) => {
+      expect(res.status).toEqual(500)
+      // expect(res.text).toContain('Somthing went wrong')
+      return null
+    })
+})
