@@ -9,7 +9,6 @@ const fakeMarvel = [
     Title: 'Fake Title1',
     Released: 'Fake Released1',
     ChronoDate: 'Fake ChronoDate1',
-    Period: 'Fake Period1',
     Image: 'Fake Image1',
     Trailer: 'https://fake.link.1'
   },
@@ -18,27 +17,21 @@ const fakeMarvel = [
     Title: 'Fake Title2',
     Released: 'Fake Released2',
     ChronoDate: 'Fake ChronoDate2',
-    Period: 'Fake Period2',
     Image: 'Fake Image2',
     Trailer: 'https://fake.link.2'
   }
 ]
 
-getMarvel.mockReturnValue(Promise.resolve(fakeStarWars))
+getMarvel.mockReturnValue(Promise.resolve(fakeMarvel))
 
 describe('fetchStarWars', () => {
   it('gets list of starwars movies and tv shows by chronological and released dates', () => {
     const dispatch = jest.fn()
-    return fetchStarWars()(dispatch)
+    return fetchMarvel()(dispatch)
       .then(() => {
         expect(dispatch).toHaveBeenCalled()
-        expect(dispatch.mock.calls[0][0].type).toEqual('SET_STARWARS')
-        console.log('1', dispatch.mock.calls[0][0])
-        expect(dispatch.mock.calls[0][0].starwars).toEqual(fakeStarWars)
+        expect(dispatch.mock.calls[0][0].type).toEqual('SET_MARVEL')
         return null
       })
   })
 })
-
-// receiving undefined
-// npm error message

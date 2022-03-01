@@ -24,7 +24,7 @@ function MarvelList () {
             <li className='poster'>
               <img src={`/images/marvel/${movie.Image}`} alt={`Image of ${movie.Title}`} /><br/>
               <h3 className='poster-title'>{movie.Title}</h3>
-              <p>{new Date(movie[order]).getFullYear()}</p>
+              <p data-testid='yeartest'>{String(new Date(movie[order]).getFullYear())}</p>
             </li>
           </Link>
         ))}

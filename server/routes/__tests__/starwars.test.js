@@ -22,18 +22,18 @@ describe('GET /api/v1/starwars', () => {
         return null
       })
   })
-  it.skip('responds with 500 and error on rejection', () => {
+  it('responds with 500 and error on rejection', () => {
     db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
     return request(server)
       .get('/api/v1/starwars')
       .expect(500)
       .then((err) => {
-        expect(err.text).toBe(/Somthing went wrong/)
+        expect(err.text).toContain('Somthing went wrong')
         return null
       })
   })
 })
-it.skip('responds with 500 if error', () => {
+it('responds with 500 if error', () => {
   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
   return request(server)
     .get('/api/v1/starwars')
