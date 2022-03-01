@@ -9,9 +9,17 @@ export function getWatchlist () {
     })
 }
 
-export function addToWatchlistApi (marvelId) {
-  return request.post(`${watchlistUrl}`)
+export function addToWatchlistMarvel (marvelId) {
+  return request.post(`${watchlistUrl}/marvel`)
     .send({ marvelId })
+    .then(res => {
+      return res.body
+    })
+}
+
+export function addToWatchlistStarwars (starwarsId) {
+  return request.post(`${watchlistUrl}/starwars`)
+    .send({ starwarsId })
     .then(res => {
       return res.body
     })

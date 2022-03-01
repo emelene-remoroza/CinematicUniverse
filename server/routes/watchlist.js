@@ -14,14 +14,21 @@ router.get('/', (req, res) => {
     .catch(e => console.log(e))
 })
 
-router.post('/', (req, res) => {
+router.post('/marvel', (req, res) => {
   const { marvelId } = req.body
   const id = 'auth0|567'
-  console.log('id', id)
-  console.log('marvelid', marvelId)
-  db.addMovie(id, marvelId)
+  db.addMarvel(id, marvelId)
     .then(results => {
-      console.log(results)
+      return res.json(results)
+    })
+    .catch(e => console.log(e))
+})
+
+router.post('/starwars', (req, res) => {
+  const { starwarsId } = req.body
+  const id = 'auth0|567'
+  db.addStarwars(id, starwarsId)
+    .then(results => {
       return res.json(results)
     })
     .catch(e => console.log(e))
