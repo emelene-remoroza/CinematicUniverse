@@ -18,7 +18,6 @@ server.use('/api/v1/starwars', starWarsRoutes)
 server.use('/api/v1/users', userRoutes)
 server.use('/api/v1/watchlist', watchListRoutes)
 
-
 server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })

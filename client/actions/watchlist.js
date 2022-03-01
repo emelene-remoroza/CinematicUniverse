@@ -1,4 +1,4 @@
-import { addToWatchlistApi, getWatchlist } from '../apis/watchlist'
+import { addToWatchlistMarvel, addToWatchlistStarwars, getWatchlist } from '../apis/watchlist'
 
 export const SET_WATCHLIST = 'SET_WATCHLIST'
 export const ADD_WATCHLIST = 'ADD_WATCHLIST'
@@ -11,9 +11,21 @@ export function setWatchlist (watchlist) {
   }
 }
 
-export function addToWatchlist (id) {
-  return (dispatch) => {
-    return addToWatchlistApi(id)
+export function addToWatchlistM (id) {
+  return (dispatch, getState) => {
+    const token = getState().user.token
+    return addToWatchlistMarvel(id, token)
+      .then((watchlist) => {
+        dispatch(setWatchlist(watchlist))
+        return null
+      })
+  }
+}
+
+export function addToWatchlistS (id) {
+  return (dispatch, getState) => {
+    const token = getState().user.token
+    return addToWatchlistStarwars(id, token)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
         return null
@@ -28,9 +40,10 @@ export function updateWatchlist (watchlist) {
 }
 
 export function fetchWatchlist () {
-  const id = 'auth0|567'
-  return dispatch => {
-    return getWatchlist(id)
+  return (dispatch, getState) => {
+    const { user } = getState()
+    const token = user?.token
+    return getWatchlist(token)
       .then((watchlist) => {
         dispatch(setWatchlist(watchlist))
         return null
