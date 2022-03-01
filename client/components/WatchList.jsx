@@ -14,26 +14,35 @@ export default function WatchList (props) {
   const listMarvel = newlist.map((results) => {
     return marvel.map((marvelResults) => {
       if (marvelResults.id === results.marvel_id) {
-        return <li key={marvelResults.id}>{marvelResults.Title}</li>
+        console.log(marvelResults)
+        return <li key={marvelResults.id}>
+          <img src={`/images/marvel/${marvelResults.Image}`}/>
+          {marvelResults.Title}
+        </li>
       }
     })
   })
   const listStarwars = newlist.map((results) => {
     return starwars.map((starwarsResults) => {
       if (starwarsResults.id === results.starwars_id) {
-        return <li key={starwarsResults.id}>{starwarsResults.Title}</li>
+        return <li key={starwarsResults.id}>
+          <img src={`/images/starwars/${starwarsResults.Image}`}/>
+          {starwarsResults.Title}
+        </li>
       }
     })
   })
 
   return (
-    <div>
+    <div className='watchlist'>
       <h1>Watch List</h1>
+      <h2>Marvel List</h2>
       <ul>
-        Marvel List{listMarvel}
-      </ul><br/>
+        {listMarvel}
+      </ul>
+      <h2>Starwars List</h2>
       <ul>
-        Starwars List{listStarwars}
+        {listStarwars}
       </ul>
     </div>
   )

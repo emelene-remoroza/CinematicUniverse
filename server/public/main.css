@@ -90,7 +90,7 @@ h2, h3, h4 {
     margin: 0.75em 0em 0em 0em;
 }
 
-p, a:link {
+p, ul, a:link {
     font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
     margin-top: 0.5rem;
     text-decoration: none;
@@ -501,6 +501,16 @@ header {
 .watch-list-button:active {
 	position: relative;
 	top: 1px;
+}
+
+/* Watchlist styling */
+.watchlist {
+  position: relative;
+  margin: 0 auto;
+}
+
+.watchlist img {
+  height: 50px;
 }
 
 /* Footer styling */
