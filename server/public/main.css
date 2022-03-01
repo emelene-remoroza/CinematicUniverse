@@ -518,23 +518,24 @@ header {
   justify-content: center;
 }
 
-.watch-movie {
+.watch-movie-wrapper {
   position: relative;
   width: 169px;
   margin: 1rem 0.5rem;
 }
 
-.watch-movie p {
+.watch-movie-wrapper p {
   text-align: center;
   padding: 0.5em;
 }
 
-.watch-movie img {
+.watch-movie-wrapper img {
   height: 250px;
 }
 
-.watch-movie:hover img {
+.watch-movie-wrapper:hover img {
   filter: brightness(40%);
+  pointer-events: none;
 }
 
 .watchlist li {
@@ -557,6 +558,29 @@ header {
 .watch-movie:hover .watch-movie-title {
   visibility: visible;
   opacity: 1;
+}
+
+.watched-button {
+	background-color: #5D3FD3;
+	border: 0 solid white;
+	display: block;
+	cursor: pointer;
+	color: white;
+	font-size: 1rem;
+  font-family: 'Monda', Verdana, Geneva, Tahoma, sans-serif;
+	padding: 6px 24px;
+  margin: 0.25rem auto;
+	text-decoration: none;
+}
+
+.watched-button:hover {
+	background: linear-gradient(to bottom, #CBC3E3 5%, #5D3FD3 100%);
+	background-color: #5D3FD3;
+}
+
+.watched-button:active {
+	position: relative;
+	top: 1px;
 }
 
 /* Footer styling */

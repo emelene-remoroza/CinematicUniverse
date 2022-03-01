@@ -14,9 +14,12 @@ export default function WatchList (props) {
   const listMarvel = newlist.map((results) => {
     return marvel.map((marvelResults) => {
       if (marvelResults.id === results.marvel_id) {
-        return <li className='watch-movie' key={marvelResults.id}>
-          <img src={`/images/marvel/${marvelResults.Image}`}/>
-          <p className='watch-movie-title'>{marvelResults.Title}</p>
+        return <li className='watch-movie-wrapper' key={marvelResults.id} aria-label={marvelResults.Title}>
+          <div className='watch-movie'>
+            <img src={`/images/marvel/${marvelResults.Image}`}/>
+            <p className='watch-movie-title'>{marvelResults.Title}</p>
+          </div>
+          <button className='watched-button' >Watched</button>
         </li>
       }
     })
@@ -24,9 +27,12 @@ export default function WatchList (props) {
   const listStarwars = newlist.map((results) => {
     return starwars.map((starwarsResults) => {
       if (starwarsResults.id === results.starwars_id) {
-        return <li className='watch-movie' key={starwarsResults.id}>
-          <img src={`/images/starwars/${starwarsResults.Image}`}/>
-          <p className='watch-movie-title'>{starwarsResults.Title}</p>
+        return <li className='watch-movie-wrapper' key={starwarsResults.id} aria-label={starwarsResults.Title}>
+          <div className='watch-movie'>
+            <img src={`/images/starwars/${starwarsResults.Image}`}/>
+            <p className='watch-movie-title'>{starwarsResults.Title}</p>
+          </div>
+          <button className='watched-button' >Watched</button>
         </li>
       }
     })
