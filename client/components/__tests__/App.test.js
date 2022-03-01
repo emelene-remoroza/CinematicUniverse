@@ -9,9 +9,8 @@ import App from '../App'
 import Header from '../Header'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
-import { fetchMarvel, fetchWatchlist, fetchStarWars } from '../../actions'
+// import { fetchMarvel, fetchWatchlist, fetchStarWars } from '../../actions'
 
-jest.mock('react-redux')
 jest.mock('../../auth0')
 jest.mock('../Header')
 jest.mock('../Footer')
@@ -29,7 +28,7 @@ describe('<App />', () => {
     getState: jest.fn()
   }
 
-  it.skip('shows a Header', () => {
+  it('shows a Header', () => {
     const history = createMemoryHistory()
     history.push('/')
     render(<Provider store={fakeStore}><BrowserRouter history={history}><App /></BrowserRouter></Provider>)
