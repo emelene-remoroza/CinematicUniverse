@@ -1,4 +1,4 @@
-import { SET_STARWARS} from '../actions/starwars'
+import { SET_STARWARS } from '../actions/starwars'
 
 const initialState = []
 

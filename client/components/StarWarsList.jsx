@@ -19,7 +19,7 @@ function StarWarsList () {
         <button onClick={() => { setOrder('Released') }} className={`${order === 'Released' ? 'disabled' : ''}`}>Sort by Release Date</button>
       </div>
       { order === 'ChronoDate' &&
-    <div className='chrono-info'>
+    <div className='chrono-info' data-testid='starwarsDate'>
       <p>*BBY: Before Battle of Yavin</p>
       <p>*ABY: After Battle of Yavin</p>
     </div> }
@@ -33,7 +33,7 @@ function StarWarsList () {
               { order === 'ChronoDate' ? (
                 <p>{movie.Period}</p>
               ) : (
-                <p>{new Date(movie[order]).getFullYear()}</p>
+                <p>{String(new Date(movie[order]).getFullYear())}</p>
               )
               }
             </li>
