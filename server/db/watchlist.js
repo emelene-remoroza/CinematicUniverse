@@ -3,7 +3,9 @@ const connection = require('./connection')
 module.exports = {
   getWatchlist,
   addMarvel,
-  addStarwars
+  addStarwars,
+  removeMarvel,
+  removeStarwars
 }
 
 function getWatchlist (id, db = connection) {
@@ -24,5 +26,23 @@ function addStarwars (id, starwarsId, db = connection) {
     .insert({ auth0_id: id, starwars_id: starwarsId })
     .then(() => {
       return getWatchlist(id)
+    })
+}
+
+function removeMarvel (auth0Id, marvelId, db = connection) {
+  return db('watchList')
+    .delete()
+    .where({ auth0_id: auth0Id, marvel_id: marvelId })
+    .then(() => {
+      return getWatchlist(auth0Id)
+    })
+}
+
+function removeStarwars (auth0Id, starwarsId, db = connection) {
+  return db('watchList')
+    .delete()
+    .where({ auth0_id: auth0Id, starwars_id: starwarsId })
+    .then(() => {
+      return getWatchlist(auth0Id)
     })
 }
