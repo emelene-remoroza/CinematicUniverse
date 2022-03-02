@@ -7,18 +7,6 @@ import MarvelList from '../MarvelList'
 
 jest.mock('../../actions/marvel')
 
-// const fakeMarvel = [
-//   {
-//     id: '1',
-//     Title: 'Fake Title1',
-//     Released: 'Fake Released1',
-//     ChronoDate: 'Fake ChronoDate1',
-//     Period: 'Fake Period1',
-//     Image: 'Fake Image1',
-//     Trailer: 'https://fake.link.1'
-//   }
-// ]
-
 describe('<MarvelList />', () => {
   const fakeStore = {
     subscribe: jest.fn(),
@@ -33,7 +21,8 @@ describe('<MarvelList />', () => {
             Image: 'Fake Image1',
             Trailer: 'https://fake.link.1'
           }
-        ]
+        ],
+        order: 'ChronoDate'
       }
     }),
     dispatch: jest.fn()

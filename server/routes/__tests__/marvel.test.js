@@ -1,7 +1,6 @@
 const request = require('supertest')
 const server = require('../../server')
 
-const { getMarvel } = require('../../db/marvel')
 const db = require('../../db/marvel')
 
 jest.mock('../../db/marvel')
@@ -29,6 +28,8 @@ describe('GET /api/v1/marvel', () => {
   })
   it('responds with 500 and error on rejection', () => {
     db.getMarvel.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+    jest.spyOn(console, 'log')
+    console.log.mockImplementation(() => {})
     return request(server)
       .get('/api/v1/marvel')
       .expect(500)
@@ -40,6 +41,8 @@ describe('GET /api/v1/marvel', () => {
 })
 it('responds with 500 if error', () => {
   db.getMarvel.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+  jest.spyOn(console, 'log')
+  console.log.mockImplementation(() => {})
   return request(server)
     .get('/api/v1/marvel')
     .then((res) => {

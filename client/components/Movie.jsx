@@ -9,13 +9,19 @@ export default function Movie (props) {
   const dispatch = useDispatch()
   const id = Number(useParams().id)
   const movieArr = useSelector(state => state[props.category])
-  const movie = useSelector(state => state[props.category].find(movie => movie.id === id))
+  const sortedList = movieArr.sort((a, b) => new Date(a[order]) - new Date(b[order]))
+  const movieIndex = sortedList.findIndex(movie => movie.id === id)
+  const movie = sortedList[movieIndex]
+  const order = useSelector(state => state.order)
   const [movieDetail, setMovieDetail] = useState({ Ratings: [] })
   const [addToWatch, setAddToWatch] = useState(false)
 
   const title = movie?.Title
   const releaseDate = new Date(movie?.Released)
   const year = releaseDate.getFullYear()
+
+  const nextMovieId = sortedList[movieIndex + 1]?.id
+  const prevMovieId = sortedList[movieIndex - 1]?.id
 
   function onClickHandler () {
     movie.Period
@@ -67,8 +73,8 @@ export default function Movie (props) {
           <div>{ratings}</div>
         </div>
         <div className='arrow-buttons'>
-          {(id > 1) && <Link to={`/${props.category}/${id - 1}`}><button className='previous'>&#8249;</button></Link>}
-          {(id < movieArr.length) && <Link to={`/${props.category}/${id + 1}`}><button className='next'>&#8250;</button></Link>}
+          {(prevMovieId) && <Link to={`/${props.category}/${prevMovieId}`}><button className='previous'>&#8249;</button></Link>}
+          {(nextMovieId) && <Link to={`/${props.category}/${nextMovieId}`}><button className='next'>&#8250;</button></Link>}
         </div>
       </div>
     </div>

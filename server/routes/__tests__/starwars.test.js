@@ -1,7 +1,6 @@
 const request = require('supertest')
 const server = require('../../server')
 
-const { getStarWars } = require('../../db/starwars')
 const db = require('../../db/starwars')
 
 jest.mock('../../db/starwars')
@@ -24,6 +23,8 @@ describe('GET /api/v1/starwars', () => {
   })
   it('responds with 500 and error on rejection', () => {
     db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+    jest.spyOn(console, 'log')
+    console.log.mockImplementation(() => {})
     return request(server)
       .get('/api/v1/starwars')
       .expect(500)
@@ -35,11 +36,12 @@ describe('GET /api/v1/starwars', () => {
 })
 it('responds with 500 if error', () => {
   db.getStarWars.mockImplementation(() => Promise.reject(new Error('mock DB error')))
+  jest.spyOn(console, 'log')
+  console.log.mockImplementation(() => {})
   return request(server)
     .get('/api/v1/starwars')
     .then((res) => {
       expect(res.status).toEqual(500)
-      // expect(res.text).toContain('Somthing went wrong')
       return null
     })
 })

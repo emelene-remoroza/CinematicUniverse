@@ -34,7 +34,8 @@ describe('<StarWarsList />', () => {
             Image: 'Fake Image1',
             Trailer: 'https://fake.link.1'
           }
-        ]
+        ],
+        order: 'ChronoDate'
       }
     }),
     dispatch: jest.fn()
@@ -45,21 +46,20 @@ describe('<StarWarsList />', () => {
     expect(listItems).toHaveLength(1)
   })
   it('sorts the movie list by chronological order', () => {
+    expect.assertions(2)
     fetchStarWars.mockReturnValue('starwars')
     render(<Provider store={fakeStore}><BrowserRouter><StarWarsList /></BrowserRouter></Provider>)
     const button = screen.getByText('Sort by Chronological Order')
     fireEvent.click(button)
     const date = screen.getByTestId('starwarsDate')
     expect(date.innerHTML).toContain('Battle of Yavin')
+    expect(fakeStore.dispatch.mock.calls[0][0]).toEqual({ order: 'ChronoDate', type: 'SET_ORDER' })
   })
-  it('sorts the movie list by release date', () => {
+  it('sort by release date button sorts movies in correct order', () => {
     fetchStarWars.mockReturnValue('starwars')
     render(<Provider store={fakeStore}><BrowserRouter><StarWarsList /></BrowserRouter></Provider>)
     const button = screen.getByText('Sort by Release Date')
     fireEvent.click(button)
-    expect(screen.queryByTestId('starwarsDate')).toBeNull()
-    // console.log(screen.getByTestId('starwarsDate'))
-    // const date = screen.getByTestId('starwarsDate')
-    // expect(date.innerHTML).notToContain('Battle of Yavin')
+    expect(fakeStore.dispatch.mock.calls[1][0]).toEqual({ order: 'Released', type: 'SET_ORDER' })
   })
 })
