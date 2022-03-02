@@ -6,6 +6,8 @@ const db = require('../../db/marvel')
 
 jest.mock('../../db/marvel')
 
+beforeEach(() => jest.clearAllMocks())
+
 describe('GET /api/v1/marvel', () => {
   it('respond with array of marvel movies and series', () => {
     db.getMarvel.mockImplementation(() => Promise.resolve([
@@ -20,6 +22,9 @@ describe('GET /api/v1/marvel', () => {
         expect(res.body.marvel).toHaveLength(3)
         expect(res.body.marvel[1].ChronoDate).toBe('1995-01-01')
         return null
+      })
+      .catch(err => {
+        console.log(err)
       })
   })
   it('responds with 500 and error on rejection', () => {
