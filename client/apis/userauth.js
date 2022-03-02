@@ -10,7 +10,7 @@ export async function addUser (user) {
 
 function logError (err) {
   if (err.message === 'Forbidden') {
-    throw new Error('Only the user who added the fruit may update and delete it')
+    throw new Error('Only the user who added the -- may update and delete it')
   } else {
     // eslint-disable-next-line no-console
     console.error(
