@@ -1,15 +1,14 @@
 import React from 'react'
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Routes, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createMemoryHistory } from 'history'
 
 import App from '../App'
 import Header from '../Header'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
-// import { fetchMarvel, fetchWatchlist, fetchStarWars } from '../../actions'
+import { fetchWatchlist } from '../../actions'
 
 jest.mock('../../auth0')
 jest.mock('../Header')
@@ -28,10 +27,12 @@ describe('<App />', () => {
     getState: jest.fn()
   }
 
-  it('shows a Header', () => {
-    const history = createMemoryHistory()
-    history.push('/')
-    render(<Provider store={fakeStore}><BrowserRouter history={history}><App /></BrowserRouter></Provider>)
-    // expect(screen.getByRole('heading')).toHaveTextContent('Header')
+  it('has links on the page', () => {
+    fakeStore.getState.mockReturnValue({ user: { token: '1234' } })
+    fetchWatchlist.mockReturnValue(['apple', 'pear', 'pineapple'])
+
+    render(<Provider store={fakeStore}><BrowserRouter><App /></BrowserRouter></Provider>)
+    expect(screen.getAllByRole('link')).not.toBeNull()
+    expect(fakeStore.dispatch).toHaveBeenCalled()
   })
 })
