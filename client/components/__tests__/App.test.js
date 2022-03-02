@@ -28,7 +28,7 @@ describe('<App />', () => {
     getState: jest.fn()
   }
 
-  it('shows a Header', () => {
+  it.skip('shows a Header', () => {
     const history = createMemoryHistory()
     history.push('/')
     render(<Provider store={fakeStore}><BrowserRouter history={history}><App /></BrowserRouter></Provider>)
